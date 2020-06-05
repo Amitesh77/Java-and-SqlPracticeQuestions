@@ -1,0 +1,446 @@
+10) Given a method with two sentence as string input. Write code to count the number of occurances of second word of second sentence in the first sentence. Return the count as output. Note-Consider case.
+Example:
+Input=Hi this is cognizant Academy
+output=Hello this is a trainee
+package Final;
+import java.util.StringTokenizer;
+public class J {
+/**
+* @param args
+*/
+public static void main(String[] args) {
+String s1="Hi This is cognizant academy";
+String s2="hello this is a trainee";
+getvalues(s1,s2);
+}
+public static void getvalues(String s1, String
+s2) {
+int count=0;
+StringTokenizer st=new StringTokenizer(s2," ");
+String s3=st.nextToken();
+String s4=st.nextToken();
+//System.out.println(s4);
+StringTokenizer st1=new StringTokenizer(s1,
+" ");
+while(st1.hasMoreTokens())
+{
+String s5=st1.nextToken();
+if(s4.equals(s5))
+{
+count++;
+}
+}
+System.out.println(count);
+}
+}
+......................................................................
+
+
+29) Given a method with sentence as string input. Write code to fetch the word with maximum number of vowels. Return this world as output. In case there is two or more words with maximum number of vowels, return the first word.
+Example:
+Input: Appreciation is the best way to motivate.
+Output: Appreciation(total vowels =6)
+public class B {
+public static void main(String[] args) {
+String s1 = "Appreciation is the best Abhishek Ashutosh ShivamBhatnagar";
+getvalues(s1);
+}
+public static void getvalues(String s1) {
+int i = 0;
+StringTokenizer st = new StringTokenizer(s1," ");
+int len = 0;
+int count = 0;
+int count2 = 0;
+String s6 = null;
+while (st.hasMoreTokens()) {
+String s5 = st.nextToken();
+len = s5.length();
+count=0;
+for (i = 0; i < len; i++) {
+if (s5.charAt(i) == 'a' || s5.charAt(i) == 'e'|| s5.charAt(i) == 'i' || s5.charAt(i) == 'o'|| s5.charAt(i) == 'u'
+||s5.charAt(i) == 'A' ||s5.charAt(i) == 'E' ||s5.charAt(i) == 'I' ||s5.charAt(i) == 'O' ||s5.charAt(i) == 'U')
+count++;
+}
+if (count > count2) {
+count2 = count;
+s6 = s5;
+}
+}
+System.out.println(s6);
+}
+}
+............................................................................
+
+44) Given a method with a sentence as a string input. Write code to find out the largest
+word in the given sentence and return it as output. In case there are two words of maximum length return
+the wrod which comes first in the sentence.
+Example:
+Input = Honesty is the best policy.
+Output=Honesty (length=7)
+package com.Packas;
+import java.util.StringTokenizer;
+public class A {
+public static void main(String[] args) {
+String s1="honesty is the best policy";
+getvalues(s1);
+}
+public static void getvalues(String s1) {
+//int count=0;
+int max=0;
+String s2=new String();
+StringTokenizer st=new StringTokenizer(s1," ");
+while(st.hasMoreTokens())
+{
+String s3=st.nextToken();
+int l=s3.length();
+if(l>max)
+{
+max=l;
+s2=s3;
+}
+}
+System.out.println(s2);
+}
+}
+......................................................................
+
+12.A time input is received as stirng. Find if the hour format is in 12 hour format. the suffix am/pm is case insensitive.
+input:"09:36 am"
+output:true
+package Set1;
+import java.text.*;
+import java.util.*;
+public class ClassSet12 {
+public static boolean hourFormat(String s) throws ParseException{
+boolean b=false;
+StringTokenizer st=new StringTokenizer(s," ");
+String s1=st.nextToken();
+String s2=st.nextToken();
+StringTokenizer st1=new StringTokenizer(s1,":");
+int n1=Integer.parseInt(st1.nextToken());
+int n2=Integer.parseInt(st1.nextToken());
+if((s2.equalsIgnoreCase("am"))|| (s2.equalsIgnoreCase("pm")))
+if((n1<=12)&&(n2<=59))
+b=true;
+return b;
+}
+public static void main(String[] args) throws ParseException {
+String s="19:36 am";
+boolean b=hourFormat(s);
+if(b==true)
+System.out.println("the time is in 12 hr format");
+else
+System.out.println("the time is in 24 hr format");
+}
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+14.find the max length-word in a given string and return the max-length word. if two words are of same length return the first occuring word of max-length
+input:"hello how are you aaaaa"
+output:hello(length-5)
+package Set1;
+import java.util.*;
+public class ClassSet14 {
+public static String lengthiestString(String s1){
+int max=0;
+String s2=null;
+StringTokenizer t=new StringTokenizer(s1," ");
+while(t.hasMoreTokens()){
+s1=t.nextToken();
+int n=s1.length();
+if(n>max){
+max=n;
+s2=s1; }
+}
+return s2;
+}
+public static void main(String[] args) {
+Scanner s=new Scanner(System.in);
+System.out.println("enter the String:");
+String s1=s.nextLine();
+System.out.println("the lengthiest string is:"+lengthiestString(s1));
+}
+}
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+21.Find the extension of a given string file.
+input: "hello.jpeg"
+output: "jpeg"
+package Set1;
+import java.util.*;
+public class ClassSet21 {
+public static String extensionString(String s1){
+StringTokenizer t=new StringTokenizer(s1,".");
+t.nextToken();
+String s2=t.nextToken();
+return s2;
+}
+public static void main(String[] args) {
+String s1="hello.jpeg";
+System.out.println(extensionString(s1));
+}
+}
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+44. Return the number of days in a month, where month and year are given as input.
+package Set1;
+import java.util.*;
+public class ClassSet44 {
+public static void main(String[] args){
+String s1="02/2011";
+System.out.println(noOfDaysInAmonth(s1));
+}
+public static int noOfDaysInAmonth(String s1){
+int n=0;
+StringTokenizer r=new StringTokenizer(s1,"/");
+int n1=Integer.parseInt(r.nextToken());
+int n2=Integer.parseInt(r.nextToken());
+if(n1==1 || n1==3 || n1==5 ||n1==7 || n1==8 || n1==10 || n1==12)
+n=31;
+else if(n1==4 || n1==6 || n1==9 || n1==11)
+n=30;
+else if(n1==2){
+if(n2%4==0)
+n=29;
+else
+n=28; }
+return n;
+}
+}
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+13) count the number of times the second word in second string occurs in first string-case sensitive
+input1=hai hello hai where hai Hai;
+input2=what hai
+output=3;
+package Set2;
+import java.util.StringTokenizer;
+public class ClassSET13 {
+public static void main(String[] args) {
+String input1="hai hello how are you?? hai hai";
+String input2="what hai";
+System.out.println(stringOccurance(input1,input2));
+}
+public static int stringOccurance(String input1, String input2){
+int count=0;
+StringTokenizer t1=new StringTokenizer(input2," ");
+String s1=t1.nextToken();
+String s2=t1.nextToken();
+StringTokenizer t2=new StringTokenizer(input1," ");
+while(t2.hasMoreTokens()){
+if(t2.nextToken().equals(s2))
+count++; }
+return count;
+}
+}
+------------------------------------------------------------------------------------------------------------||
+
+19)Take the word with a max length in the given sentance
+in that check for vowels if so count the no.of occurances !
+Input 1="Bhavane is a good girl"
+Output =3
+Input 1="Bhavanee is a good girl"
+Output =4
+package Set2;
+import java.util.StringTokenizer;
+public class ClassSET19 {
+public static void main(String[] args) {
+String s1="Bhavane is a good girl";
+System.out.println(countVowelsInMaxLengthString(s1));
+}
+public static int countVowelsInMaxLengthString(String s1) {
+int n1=0, max=0;
+String s4="AEIOUaeiou";
+String s3=new String();
+StringTokenizer t=new StringTokenizer(s1," ");
+while(t.hasMoreTokens()){
+String s2=t.nextToken();
+int n2=s2.length();
+if(n2>max){
+max=n2;
+s3=s2;} }
+for(int i=0;i<s3.length();i++)
+for(int j=0;j<s4.length();j++)
+if(s3.charAt(i)==s4.charAt(j))
+n1++;
+return n1;
+}
+}
+--------------------------------------------------------------------------------------------------------||
+
+15) count the number of words in the string
+Input string="i work in cognizant.";
+output=4;
+package Set3;
+import java.util.StringTokenizer;
+public class ClassSeT15 {
+public static void main(String[] args) {
+String s="I work for cognizant";
+System.out.println(noOfWordsInString(s));
+}
+public static int noOfWordsInString(String s) {
+StringTokenizer t=new StringTokenizer(s," ");
+return t.countTokens();
+}
+}
+----------------------------------------------------------------------------------------------------||
+
+
+
+21) input1-- Hello*world
+output-- boolean(true or false)
+operation-- if the character before and after * are same return true else false
+if there in no star in the string return false(Ignore case)
+package Set3;
+import java.util.*;
+public class ClassSeT21 {
+public static void main(String[] args) {
+String input="Hello*world";
+System.out.println(characterCheck(input));
+}
+public static boolean characterCheck(String input) {
+boolean b=false;
+StringTokenizer t=new StringTokenizer(input,"*");
+String s1=t.nextToken();
+String s2=t.nextToken();
+String s3=s1.substring(s1.length()-1);
+String s4=s2.substring(0,1);
+if(s3.equalsIgnoreCase(s4))
+b=true;
+return b;
+}
+}
+----------------------------------------------------------------------------------------------------||
+
+32) i/p: Honesty is my best policy
+o/p: Honesty
+Return the maximum word length from the given string.
+If there are two words of same length then,
+return the word which comes first based on alphabetical order.
+package Set3;
+import java.util.*;
+public class ClassSeT32 {
+public static void main(String[] args) {
+String s1="is a poppppy preethi";
+System.out.println(lengthiestString(s1));
+}
+public static String lengthiestString(String s1) {
+int max=0;
+String s2=new String();
+StringTokenizer t=new StringTokenizer(s1," ");
+loop:
+while(t.hasMoreTokens()){
+String s3=t.nextToken();
+int n=s3.length();
+if(n>max){
+max=n;
+s2=s3;}
+if(n==max)
+for(int i=0;i<s3.length();i++){
+char c1=s2.charAt(i);
+char c2=s3.charAt(i);
+if(c1!=c2){
+if(c2<c1)
+s2=s3;
+continue loop;} }
+}
+return s2;
+}
+}
+----------------------------------------------------------------------------------------------------||
+
+36) find the maximum chunk of a given string
+i/p: this isssss soooo good
+o/p=5
+package Set3;
+import java.util.*;
+public class ClassSeT36 {
+public static void main(String[] args) {
+String s1="this is sooo good";
+System.out.println(maxChunk(s1));
+}
+public static int maxChunk(String s1) {
+int max=0;
+StringTokenizer t=new StringTokenizer(s1," ");
+while(t.hasMoreTokens()){
+String s2=t.nextToken();
+int n=0;
+for(int i=0;i<s2.length()-1;i++)
+if(s2.charAt(i)==s2.charAt(i+1))
+n++;
+if(n>max)
+max=n;
+}
+return (max+1);
+}
+}
+----------------------------------------------------------------------------------------------------||
+
+
+39) input1="the sun raises in the east";
+output1=raises;
+count no vowels in each word and print the word which has max
+no of vowels if two word has max no of vowel print the first one
+package Set3;
+import java.util.*;
+public class ClassSeT39 {
+public static void main(String[] args) {
+String s1="the sun rises in the east";
+System.out.println(wordWithMaxVowelCount(s1));
+}
+public static String wordWithMaxVowelCount(String s1) {
+int max=0;
+String s2="aeiouAEIOU";
+String s3=new String();
+StringTokenizer t=new StringTokenizer(s1," ");
+while(t.hasMoreTokens()){
+String s4=t.nextToken();
+int c=0;
+for(int i=0;i<s4.length();i++)
+for(int j=0;j<s2.length();j++)
+if(s4.charAt(i)==s2.charAt(j))
+c++;
+if(c>max){
+max=c;
+s3=s4;} }
+return s3;
+}
+}
+----------------------------------------------------------------------------------------------------||
+
+40) String format : CTS-LLL-XXXX
+ip1: CTS-hyd-1234
+ip2: hyderabad
+-> LLL must be first 3 letters of ip2.
+-> XXXX must be a 4-digit number
+package Set3;
+import java.util.*;
+public class ClassSeT41 {
+public static void main(String[] args) {
+String s1="CTS-hyd-1234";
+String s2="hyderabad";
+boolean b=formattingString(s1,s2);
+if(b==true)
+System.out.println("String format:CTS-LLL-XXXX");
+else
+System.out.println("not in required format");
+}
+public static boolean formattingString(String s1, String s2) {
+String s3=s2.substring(0, 3);
+boolean b=false;
+StringTokenizer t=new StringTokenizer(s1,"-");
+String s4=t.nextToken();
+String s5=t.nextToken();
+String s6=t.nextToken();
+if(s4.equals("CTS") && s5.equals(s3) && s6.length()==4)
+for(int i=0;i<s6.length();i++){
+if(Character.isDigit(s6.charAt(i)))
+b=true;
+else{
+b=false;}}
+return b;
+}
+}
+----------------------------------------------------------------------------------------------------||
+
+

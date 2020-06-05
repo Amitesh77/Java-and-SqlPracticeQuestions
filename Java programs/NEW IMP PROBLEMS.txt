@@ -1,0 +1,2159 @@
+APPLE
+
+import java.util.HashMap;
+import java.util.Scanner;
+
+
+public class Main {
+public static void main(String args[])
+{
+	Scanner s=new Scanner(System.in);
+	String st=s.next();
+	getvalues(st);
+}
+
+public static void getvalues(String s) {
+	int count=0;
+	HashMap<Character, Integer>h=new HashMap<Character, Integer>();
+	StringBuffer sb=new StringBuffer(s);
+	int n=sb.length();
+	for(int i=0;i<sb.length();i++)
+	{count=1;
+		for(int j=i+1;j<sb.length();j++)
+		{
+			if(sb.charAt(i)==sb.charAt(j))
+			{
+			count++;
+			sb.deleteCharAt(j);
+			j--;
+			n--;
+			
+			
+									
+			}
+				
+			}
+		int c=count;
+		char ch=sb.charAt(i);
+		
+		h.put(ch,c);
+		System.out.println(count);
+	}
+	
+	System.out.println(h);
+	
+	
+	
+}
+	
+	
+}
+
+---------------------------------------------------------------
+
+Prime factorial sum
+
+import java.util.HashMap;
+import java.util.Scanner;
+
+
+public class Main {
+public static void main(String args[])
+{
+	Scanner s=new Scanner(System.in);
+	int st=s.nextInt();
+	getvalues(st);
+}
+
+public static void getvalues(int n) {
+	int d=0,fact=1,sum=0;
+	
+	while(n!=0)
+	{
+		fact=1;
+		d=n%10;
+		System.out.println(d);
+		if(d==2||d==5||d==3||d==7)
+		{
+			for(int i=1;i<=d;i++)
+			{
+				fact=fact*i;
+			}
+			sum=sum+fact;
+		}
+	
+		n=n/10;
+	}
+	
+	
+	System.out.println(sum);
+}
+	
+	
+}
+
+________________________________________________________________________________
+
+BINARY TO DECIMAL
+
+import java.util.HashMap;
+import java.util.Scanner;
+
+
+public class Main {
+public static void main(String args[])
+{
+	Scanner s=new Scanner(System.in);
+	int st=s.nextInt();
+	getvalues(st);
+}
+
+public static void getvalues(int n) {
+	int d=0,dec=0,i=1;
+	while(n!=0)
+	{
+		d=n%10;
+		
+		dec=dec+(d*i);
+		i=i*2;
+		
+		n=n/10;
+	}
+	System.out.println(dec);
+	
+}
+	
+	
+}
+-----------------------------------------------------------------------------------------
+
+AMSTRONG NUMBER
+
+import java.util.HashMap;
+import java.util.Scanner;
+
+
+public class Main {
+public static void main(String args[])
+{
+	Scanner s=new Scanner(System.in);
+	int st=s.nextInt();
+	getvalues(st);
+}
+
+public static void getvalues(int n) {
+	int d=0,dec=0,i=1;
+	int sum=0;
+	sum=n;
+	while(sum!=0)
+	{
+		d=sum%10;
+		
+		dec=dec+(d*d*d);
+		
+		
+		sum=sum/10;
+	}
+	if(dec==n)
+	System.out.println(1);
+	else
+		System.out.println(-1);
+	
+}
+	
+	
+}
+
+__________________________________________________________________________
+
+STRONG NUMBER OR NOT
+
+import java.util.HashMap;
+import java.util.Scanner;
+
+
+public class Main {
+public static void main(String args[])
+{
+	Scanner s=new Scanner(System.in);
+	int st=s.nextInt();
+	getvalues(st);
+}
+
+public static void getvalues(int a) {
+	int n;
+	n=a;
+	int fact=1,d=0,sum=0;
+	
+	while(n!=0)
+	{
+		fact=1;
+		d=n%10;
+		System.out.println("n "+d);
+		for(int i=1;i<=d;i++)
+		{
+			fact=fact*i;
+			
+		}
+		System.out.println(fact);
+		sum=sum+fact;
+		n=n/10;
+	}
+	
+	
+	if(sum==a)
+	{
+		System.out.println(1);
+	}
+	else
+	{
+		System.out.println(-1);
+	}
+	
+}
+	
+	
+}
+
+--------------------------------------------------------------------------------------
+
+POWER OF TWO
+
+import java.util.HashMap;
+import java.util.Scanner;
+
+
+public class Main {
+public static void main(String args[])
+{
+	Scanner s=new Scanner(System.in);
+	int st=s.nextInt();
+	getvalues(st);
+}
+
+public static void getvalues(int n) {
+	int a=0,c=0;
+	
+	if(n%2==0&&n>0)
+	{a=0;c=0;
+		for(int i=1;i<n;i++)
+		{
+		a=i*i;	
+		if(a==n)
+		{
+			c++;
+			break;
+		}
+		}
+	}
+if(c>0)
+{
+	System.out.println(1);
+}
+else
+{
+	System.out.println(-1);
+}
+
+
+}
+	
+	
+}
+
+______________________________________________________________________________________
+
+REMOVE DUP & SORT & ADD PRIME
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Scanner;
+
+public class Main {
+public static void main(String args[])
+{
+Scanner s=new Scanner(System.in);
+	int st=s.nextInt();
+	int a[]=new int[st];
+	for(int i=0;i<st;i++)
+		
+	{
+		a[i]=s.nextInt();
+	}
+	getvalues(a);
+}
+
+public static void getvalues(int[] a) {
+	ArrayList<Integer>al=new ArrayList<Integer>();
+	ArrayList<Integer>al1=new ArrayList<Integer>();
+	int c=0,sum=0;
+	for(int i=0;i<a.length;i++)
+	{
+		al.add(a[i]);
+		
+	}
+	for(int i=0;i<al.size();i++)
+	{
+		for(int j=i+1;j<al.size();j++)
+		{
+			if(al.get(i)==al.get(j))
+			{
+			al1.add(al.get(j));	
+			}
+		}
+	}
+	al.removeAll(al1);
+	al.addAll(al1);
+	Collections.sort(al);
+	
+	for(int i=1;i<al.size();i++)
+	{
+		int b=al.get(i);
+		
+		for(int j=2;j<b;j++)
+		{
+			if(b%j==0)
+			{
+				c++;
+				break;
+			}
+			
+			}
+		if(c==0)
+		{
+			sum=sum+b;
+		}
+		
+		
+		
+	}
+System.out.println(sum);
+
+}
+	
+	
+}
+
+_____________________________________________________________________________________________
+
+remove even duplicates
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Scanner;
+
+public class Main {
+public static void main(String args[])
+{
+Scanner s=new Scanner(System.in);
+	int st=s.nextInt();
+	int a[]=new int[st];
+	for(int i=0;i<st;i++)
+		
+	{
+		a[i]=s.nextInt();
+	}
+	getvalues(a);
+}
+
+public static void getvalues(int[] a) {
+	ArrayList<Integer>al=new ArrayList<Integer>();
+	ArrayList<Integer>al1=new ArrayList<Integer>();
+	int c=0,sum=0;
+	for(int i=0;i<a.length;i++)
+	{
+		al.add(a[i]);
+		
+	}
+	for(int i=0;i<al.size();i++)
+	{
+		for(int j=i+1;j<al.size();j++)
+		{
+			if(al.get(i)%2==0)
+			if(al.get(i)==al.get(j))
+			{
+			
+			al1.add(al.get(j));	
+			}
+		}
+	}
+	al.removeAll(al1);
+	al.addAll(al1);
+	Collections.sort(al);
+	System.out.println(al);
+}
+}
+
+____________________________________________________________________________________________
+
+
+to get hashmap based on asc order or desc order of the key or values
+
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Scanner;
+
+public class Main {
+public static void main(String args[])
+{
+Scanner s=new Scanner(System.in);
+	int st=s.nextInt();
+	
+	HashMap<Integer, Integer>h=new HashMap<Integer, Integer>();
+	for(int i=0;i<st;i++)
+		
+	{
+		
+		int a=s.nextInt();
+		int b=s.nextInt();
+		h.put(a, b);
+	}
+	getvalues(h);
+}
+
+public static void getvalues(HashMap<Integer,Integer> h) {
+	ArrayList<Integer>al=new ArrayList<Integer>();
+HashMap<Integer, Integer>l=new HashMap<Integer, Integer>();
+	Iterator<Integer>itr=h.keySet().iterator();
+	while(itr.hasNext())
+	{
+		int a=itr.next();
+		
+		al.add(a);
+			
+	}
+	for(int i=0;i<al.size();i++)
+	{
+		int n=al.get(i);
+		int n1=h.get(n);
+		l.put(n, n1);
+		
+		
+	}
+	
+	System.out.println(l);
+}
+	
+	
+}
+
+
+_________________________________________________________________________________________________________
+
+to get first n elements and last n elements in hashmap according to asc or desc order
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Scanner;
+
+public class Main {
+public static void main(String args[])
+{
+Scanner s=new Scanner(System.in);
+	int st=s.nextInt();
+	
+	HashMap<Integer, Integer>h=new HashMap<Integer, Integer>();
+	for(int i=0;i<st;i++)
+		
+	{
+		
+		int a=s.nextInt();
+		int b=s.nextInt();
+		h.put(a, b);
+	}
+	getvalues(h);
+}
+
+public static void getvalues(HashMap<Integer,Integer> h) {
+	int n6=2;
+	ArrayList<Integer>al=new ArrayList<Integer>();
+HashMap<Integer, Integer>l=new HashMap<Integer, Integer>();
+	Iterator<Integer>itr=h.keySet().iterator();
+	while(itr.hasNext())
+	{
+		int a=itr.next();
+		
+		al.add(a);
+			
+	}
+	for(int i=0;i<n6;i++)
+	{
+		int n=al.get(i);
+		int n1=h.get(n);
+		l.put(n, n1);
+		
+		
+	}
+	Collections.reverse(al);
+	for(int i=0;i<n6;i++)
+	{
+		int n=al.get(i);
+		int n1=h.get(n);
+		l.put(n, n1);
+		
+		
+	}
+	
+	System.out.println(l);
+}
+	
+	
+}
+
+-----------------------------------------------------------------------------------------------------
+
+hashmap-sorted value-display top 3
+
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Scanner;
+import java.util.TreeMap;
+
+public class Main {
+public static void main(String args[])
+{
+Scanner s=new Scanner(System.in);
+	int st=s.nextInt();
+	
+	HashMap<Integer, Integer>h=new HashMap<Integer, Integer>();
+	for(int i=0;i<st;i++)
+		
+	{
+		
+		int a=s.nextInt();
+		int b=s.nextInt();
+		h.put(a, b);
+	}
+	getvalues(h);
+}
+
+public static void getvalues(HashMap<Integer,Integer> h) {
+	//int n6=2;
+	ArrayList<Integer>al=new ArrayList<Integer>();
+TreeMap<Integer, Integer>l=new TreeMap<Integer, Integer>();
+	Iterator<Integer>itr=h.keySet().iterator();
+	while(itr.hasNext())
+	{
+		int a=itr.next();
+		int a0=h.get(a);
+		
+		al.add(a0);
+			
+	}
+	Collections.sort(al);
+	
+	System.out.println(al);
+for(int i=0;i<3;i++)
+{
+	int g=al.get(i);
+	System.out.println(g);
+	Iterator<Integer>itr1=h.keySet().iterator();
+	while(itr1.hasNext())
+{
+	
+	int a=itr1.next();
+	System.out.println(a);
+	int b=h.get(a);
+	if(b==g)
+	{
+		l.put(a, g);
+	}
+}
+}
+	
+
+	
+	System.out.println(l);
+}
+	
+	
+}
+
+
+--------------------------------------------------------------------------------------------------------------
+
+/** C Program to check Perfect Square **/
+
+#include <stdio.h>
+
+int main()
+{
+    int a, n;
+    printf("Enter a number: ");
+    scanf("%d", &n);
+    for(a = 0; a <= n; a++)
+    {
+        if (n == a * a)
+        {
+            printf("YES");
+            return 0;
+        }
+    }
+    printf("NO");
+    return 0;
+}
+--------------------------------------------------------------------------------------------------------------
+1)
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+ 
+ 
+public class ja8 {
+ 
+      /**
+      * @param args
+      */
+      public static void main(String[] args) {
+            // TODO Auto-generated method stub
+            int count=0;
+String s="rajjayraj";
+String s1="raj";
+Pattern p= Pattern.compile(s1);
+Matcher m=p.matcher(s);
+while(m.find())
+{
+      count++;
+}
+System.out.println(count);
+ 
+      }
+ 
+}
+
+-----------------------------------------------------
+
+2) WRONG
+package cognizant;
+ 
+class ja5
+{
+                public static void main(String args[])
+                {int count=0;
+                                String s="ara";
+                                String s1="aar";
+                
+                                int m=s1.length();
+                                for(int i=0;i<s.length();i++)
+                                {count=0;
+                                                for(int j=0;j<s1.length();j++)
+                                                {
+                                                                if(s.charAt(i)==s1.charAt(j))
+                                                                {
+                                                                                count++;
+                                                                }
+                                                }
+                                }
+                                if(m==count+1)
+                                {
+                                                System.out.println(1);
+                                }
+                                else
+                                {
+                                                System.out.println(-1);
+                                }
+                }
+}
+
+-----------------------------------------------------
+
+3)
+VOTING
+
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Iterator;
+ 
+ 
+public class UserMainCode 
+{
+      public static ArrayList<String> getList(HashMap<String, String> inputMap)
+      {
+            ArrayList<String> al=new ArrayList<String>();
+            Iterator<String> itr=inputMap.keySet().iterator();
+            String dob = null;
+            String s1  = null;
+            while(itr.hasNext())
+            {
+            s1=itr.next();
+            dob=inputMap.get(s1);
+            SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/yyyy");
+            sdf.setLenient(false);
+            try
+            {
+                  Date d1=sdf.parse(dob);
+                  Calendar cal=Calendar.getInstance();
+                  cal.setTime(d1);
+                  cal.add(Calendar.YEAR, 18);
+                  Date today=new Date();
+                  Date d2=cal.getTime();
+                  if (d2.before(today))
+                  {
+                  al.add(s1);
+                  }
+            }
+            catch(ParseException e)
+            {
+                  
+            }
+            }
+            return al;
+ 
+      }
+ 
+ 
+}
+
+---------------------------------------------------------------
+4)
+PALINDROM
+
+public class Main{
+      public static void main(String [] args)
+      {
+      Scanner sc = new  Scanner(System.in);
+      int sum=0;
+      int n1=sc.nextInt();
+      int n2=sc.nextInt();
+      for(int i=n1;i<=n2;i++)
+      {
+            StringBuffer sb=new StringBuffer();
+            sb.append(i);
+            sb.reverse();
+            int n=Integer.parseInt(sb.toString());
+            if(i==n)
+            {
+                  sum=sum+i;
+            }
+      }
+      System.out.println(sum);
+      }
+      }
+------------------------------------------------------------------
+
+5)
+ANAGRAM
+
+package Set2;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.*;
+ 
+public class anagram {
+ 
+      /**
+      * @param args
+      */
+      public static void main(String[] args) {
+            // TODO Auto-generated method stub
+            String s1="Despperation";
+            String s2="a rope ends it";
+            String s3=s1.toLowerCase();
+            String s4=s2.toLowerCase();
+            List<Character> l1=new ArrayList<Character>();
+            List<Character> l2=new ArrayList<Character>();
+            List<Character> l3=new ArrayList<Character>();
+            for(int i=0;i<s3.length();i++)
+            {
+                  if(s3.charAt(i)!=' ')
+                  {
+                        l1.add(s3.charAt(i));
+                  }
+            }
+            for(int i=0;i<s4.length();i++)
+            {
+                  if(s4.charAt(i)!=' ')
+                  {
+                        l2.add(s4.charAt(i));
+                  }
+            }
+            Collections.sort(l1);
+            System.out.println(l1);
+            Collections.sort(l2);
+            System.out.println(l2);
+            if(l1.equals(l2))
+            {
+                  System.out.println("yes");
+            }
+            else
+            {
+                  System.out.println("no");
+            }
+                        }
+}
+
+------------------------------------------------------------
+6)
+HELOOHAIHELLO
+
+public class Main4 {
+    public static void main(String[] args) 
+    {
+     String s[]={"aravind","praven","banupriya","subbu"};
+     int max=0;
+     String s4=null;
+     String s5=null;
+     String a[]=new String[3];
+     for(int i=0;i<s.length;i++)
+     {
+       String s1=s[i];
+       int n=s1.length();
+       if(n>max)
+       {
+             max=n;
+             s4=s1;
+       }
+     }
+    
+     for(int i=0;i<s.length;i++)
+     {
+       String s2=s[i];
+       int n=s2.length();
+       if(n<max)
+       {
+             max=n;
+             s5=s2;
+       }
+     }
+//     System.out.println(s4);
+//     System.out.println(s5);
+    
+   
+      a[0]=s4;
+      a[1]=s5;
+      a[2]=s4;
+    for(int i=0;i<a.length;i++)
+    {
+      System.out.print(a[i]+" ");
+    }
+     
+      
+    }
+}
+
+---------------------------------------------------------
+7)HH:MM:SS
+
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.StringTokenizer;
+ 
+ 
+public class Main {
+ 
+      public static void main(String[] args) {
+            String s="18:20:30";
+            String s1="18:20:30";
+            getvalues(s,s1);
+      }
+ 
+      private static void getvalues(String s, String s1) {
+Calendar cal=Calendar.getInstance();
+Calendar cal1=Calendar.getInstance();
+SimpleDateFormat sdf=new SimpleDateFormat("HH:mm:ss");
+SimpleDateFormat sdf1=new SimpleDateFormat("dd:HH:mm:ss");
+StringBuffer sb=new StringBuffer();
+sdf.setLenient(false);
+try
+{
+      Date d1=sdf.parse(s);
+      cal.setTime(d1);
+      Date d2=sdf.parse(s1);
+      cal1.setTime(d2);
+      cal.add(Calendar.HOUR_OF_DAY,cal1.get(Calendar.HOUR_OF_DAY));
+      cal.add(Calendar.MINUTE,cal1.get(Calendar.MINUTE));
+      cal.add(Calendar.SECOND,cal1.get(Calendar.SECOND));
+      Date d3=cal.getTime();
+      String s3=sdf1.format(d3);
+      StringTokenizer st=new StringTokenizer(s3,":");
+      String day=st.nextToken();
+      if(day.equals("02"))
+      {
+            String s4="01";
+            sb.append(s4).append(s3.substring(2,s3.length()));
+            System.out.println(sb);
+      }
+      else
+      {
+            System.out.println(s3);
+      }
+      
+      
+}
+catch(ParseException e)
+{
+      
+}
+            
+      }
+      }
+
+-------------------------------------------------------------------
+8)
+DECIMAL FORMAT
+
+import java.text.DecimalFormat;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.StringTokenizer;
+ 
+public class Main {
+public static void main(String[] args) {
+Map<Integer,Float> m1=new HashMap<Integer, Float>();
+m1.put(1, (float) 11.9922);
+m1.put(2, (float) 15.67);
+m1.put(3, (float) 11.9922);
+m1.put(4, (float) 14.88);
+System.out.println(avgOfEvenKeyValues(m1));
+}
+public static float avgOfEvenKeyValues(Map<Integer, Float> m1) {
+float sum=0;
+StringBuffer sb=new StringBuffer();
+//DecimalFormat df=new DecimalFormat(".00");
+//String res=null;
+ 
+      for (Integer itr:m1.keySet()) {
+            if((itr%2)!=0)
+            {
+                  sum=sum+m1.get(itr);
+            }
+            }
+      //System.out.println(sum);
+      //res=Math.round(sum*100)/100f;
+      //res=df.format(sum);
+      //float finalres = Float.parseFloat(res);
+      String sum1=String.valueOf(sum);
+      //System.out.println(sum1);
+      StringTokenizer st=new StringTokenizer(sum1,".");
+      String s2=st.nextToken();
+      String s3=st.nextToken();
+      String s4=s3.substring(0,2);
+      sb.append(s2).append(s4);
+      float fin=Float.parseFloat(sb.toString());
+      return fin;
+            
+      }
+      
+}
+
+--------------------------------------------------------------
+9)UNIQUE INTEGERS
+
+public class Main {
+    public static void main(String[] args) 
+    {
+      Scanner sc=new Scanner(System.in);
+      int count=0;
+      int limit=sc.nextInt();
+      int a[]=new int[limit];
+      for(int i=0;i<limit;i++)
+      {
+            a[i]=sc.nextInt();
+      }
+      ArrayList<Integer> al1=new ArrayList<Integer> ();
+      for(int i=0;i<a.length;i++)
+      {
+            al1.add(a[i]);
+      }
+      ArrayList<Integer> al2=new ArrayList<Integer>();
+      for(int i=0;i<a.length;i++)
+      {
+            count=0;
+            int n1=a[i];
+            for(int j=i+1;j<a.length;j++)
+            {
+                  int n2=a[j];
+                  if(n1==n2)
+                  {
+                        count++;    
+                  }
+            }
+            if(count>0)
+            {
+                  al2.add(n1);
+            }
+      }
+      al1.removeAll(al2);
+      System.out.println(al1);
+      System.out.println(al2);
+      int arr[]=new int[al1.size()];
+      for(int i=0;i<al1.size();i++)
+      {
+            arr[i]=al1.get(i);
+      }
+      for(int i=0;i<al1.size();i++)
+      {
+            System.out.println(arr[i]);
+      }
+    }
+}
+
+----------------------------------------------------------------------
+10)PATTERN MATCH
+
+import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+ 
+ 
+public class Main4 {
+    public static void main(String[] args) 
+    {int count=0;
+    String s="hi";
+    String s1="hihihihihow";
+    Pattern p=Pattern.compile(s);
+    Matcher m=p.matcher(s1);
+    while(m.find())
+    {
+      count++;
+    }
+     System.out.println(count);
+      
+    }
+}
+
+-----------------------------------------------------------------
+
+11) TREE
+
+package array;
+import java.util.*;
+ 
+public class treemap {
+ 
+      /**
+      * @param args
+      * @throws ParseException 
+       */
+      public static void main(String[] args)  {
+            // TODO Auto-generated method stub
+            HashMap<String,String> m1=new HashMap<String,String>();
+            m1.put("101","02/02/1994");
+            m1.put("102","02/02/1991");
+            m1.put("103","02/02/1996");
+            HashMap<String,Integer> m2=new HashMap<String,Integer>();
+            m2.put("101",10000);
+            m2.put("102",20000);
+            m2.put("103",30000);
+            int dis=0;
+            TreeMap<String, Integer> t1=new TreeMap<String, Integer>();
+            Iterator<String>itr=m1.keySet().iterator();
+            while(itr.hasNext())
+            {
+                  String s=itr.next();
+                  //System.out.println(s);
+                  String s1=m1.get(s);
+                  int sal=m2.get(s);
+                  StringTokenizer st=new StringTokenizer(s1,"/");
+                  String s2=st.nextToken();
+                  String s3=st.nextToken();
+                  String s4=st.nextToken();
+                  int n=Integer.parseInt(s4);
+                  //System.out.println(n);
+                  Date d1=new Date();
+                  Calendar c=Calendar.getInstance();
+                  c.setTime(d1);
+                  int n1=c.get(Calendar.YEAR);
+                  //System.out.println(n1);
+                  int res=n1-n;
+                  System.out.println(res);
+                  if(res>=21)
+                  {
+                        dis=(int) (sal+(sal*0.15));
+                  }
+                  else if(res<21)
+                  {
+                        dis=-100;
+                  }
+                  t1.put(s, dis);
+            }
+                  System.out.println(t1);
+            
+            //System.out.println(res);
+            }
+}
+
+--------------------------------------------------------------------
+
+
+MOCK TEST 1A
+
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Iterator;
+
+
+public class UserMainCode3 {
+
+
+    public static ArrayList<Integer> getList(HashMap<Integer,String> inputMap) throws ParseException {
+ Date d1=new Date();
+    ArrayList<Integer> al=new ArrayList<Integer>();
+ Iterator<Integer> itr=inputMap.keySet().iterator();
+ while(itr.hasNext())
+ {int n3=itr.next();
+String s3=inputMap.get(n3);
+SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/yyyy");
+Date d2=sdf.parse(s3);
+Calendar cal=Calendar.getInstance();
+cal.setTime(d2);
+cal.add(Calendar.YEAR,18);
+Date d3=cal.getTime();
+if(d3.before(d1))
+{
+ 
+al.add(n3);
+}
+ 
+ 
+ }
+ return al;
+ 
+     }
+}
+
+
+
+
+-----------------------------------------------------------------
+
+MOCK TEST 1B
+
+
+import java.util.StringTokenizer;
+
+
+
+
+public class UserMainCode2 {
+public static String getSum(double n) {
+int d=0,sum=0,d1=0,sum1=0;
+    
+String s=String.valueOf(n);
+StringTokenizer sb=new StringTokenizer(s,".");
+String s1=sb.nextToken();
+String s2=sb.nextToken();
+int n1=Integer.parseInt(s1);
+int n2=Integer.parseInt(s2);
+while(n1!=0)
+{
+d=n1%10;
+sum=sum+d;
+n1=n1/10;
+}
+while(n2!=0)
+{
+d1=n2%10;
+sum1=sum1+d1;
+n2=n2/10;
+}
+ 
+String s5=String.valueOf(sum)+":"+String.valueOf(sum1);
+return s5;
+ 
+   }
+}
+
+
+
+
+
+
+--------------------------------------------------------------------------------
+
+MOCK TEST 2A
+
+
+Hi All, 
+
+
+Please Find the Question below
+
+
+In a school there are some teachers who handle two subjects (Maths and 
+
+
+English). When
+the feedback was taken their feedback was present in both Maths Feedback as 
+
+
+well as English Feedback.
+Write a method to create a consolidated feedback for the teachers for English 
+
+
+and Maths. For those
+taking both the subjects the highest feedback is taken. Write a method to 
+
+
+accept two maps and return a
+Map object containing the feedbacks of all teachers in maths and English.
+Note: HashMap contains
+Key - Teacher’s name of type String
+Value – Feedback of type Integer
+
+
+import java.util.HashMap;
+import java.util.Map.Entry;
+import java.util.Scanner;
+
+
+
+
+
+public class Main {
+	public static void main(String[] args)
+	{
+	 HashMap<String,Integer> englishMap = new HashMap<String,Integer>();
+	 HashMap<String,Integer> mathsMap = new HashMap<String,Integer>();
+	 Scanner  inp = new Scanner(System.in);
+	System.out.println("Enter n ");
+	int n  = inp.nextInt();
+	System.out.println("Enter Maths Teacher details");
+	for (int i=0;i<n;i++)
+	{
+	inp.nextLine();
+	System.out.println("Enter Name");
+	 String name=inp.nextLine();
+	System.out.println("Enter feedback mark");
+	 int mark = inp.nextInt();
+	mathsMap.put(name,mark);
+	 }
+
+
+	System.out.println("Enter english Teacher details");
+	for (int i=0;i<n;i++)
+	{
+	inp.nextLine();
+	System.out.println("Enter Name");
+	 String name=inp.nextLine();
+	System.out.println("Enter feedback mark");
+	 int mark = inp.nextInt();
+	englishMap.put(name,mark);
+	 }
+	  
+	 HashMap<String,Integer> resultMap = User.getConsolidateFeedback(englishMap,mathsMap);
+	for(Entry<String,Integer> entry : resultMap.entrySet())
+	{
+	System.out.println(entry.getKey() +"  " +entry.getValue());
+	}
+
+
+
+
+
+
+	}
+
+
+	}
+
+
+
+import java.util.HashMap;
+import java.util.Iterator;
+
+
+public class User {
+	
+
+
+		public static HashMap<String,Integer> getConsolidateFeedback (
+		 HashMap<String,Integer> englishFeedback,
+		 HashMap<String,Integer> mathsFeedBack)
+		{
+HashMap<String, Integer>hm=new HashMap<String, Integer>();
+			Iterator<String>itr=englishFeedback.keySet().iterator();
+			Iterator<String>itr1=mathsFeedBack.keySet().iterator();
+			while(itr.hasNext())
+			{
+				String s=itr.next();
+				if(mathsFeedBack.containsKey(s))
+				{
+					int a=mathsFeedBack.get(s);
+					int b=englishFeedback.get(s);
+					if(a>b)
+					{
+						hm.put(s, a);
+					}
+					else
+						hm.put(s,b);
+				}
+				else
+				{
+					int b=englishFeedback.get(s);
+					hm.put(s, b);
+				}
+				
+			}
+			while(itr1.hasNext())
+			{
+				String n1=itr1.next();
+				if(!englishFeedback.containsKey(n1))
+				{
+					int a=mathsFeedBack.get(n1);
+					hm.put(n1,a );
+				}
+			}
+
+
+return hm;
+		
+	}
+}
+
+
+
+	
+----------------------------------------------------------------------------------------------------------------------------
+1=a
+2=avav
+3=aviaviavi
+4=aviaviaviavi
+5=aviaviaviaviavi
+package Set1;
+
+import java.util.Scanner;
+
+public class ClassSet1 {
+	
+		public static void main(String[] args) {
+		String s1="avinash";
+		int n=5;
+		getvalues(s1,n);
+		}
+		public static void getvalues(String s1,int n) {
+StringBuffer sb=new StringBuffer();
+			if(n==1)
+			{
+				sb.append(s1.charAt(0));
+			}
+			if(n==2)
+			{
+				for(int i=0;i<n;i++)
+				sb.append(s1.charAt(0)).append(s1.charAt(1));
+			}
+			if(n>=3)
+			{
+				for(int i=0;i<n;i++)
+				{
+					sb.append(s1.charAt(0)).append(s1.charAt(1)).append(s1.charAt(2));
+				}
+			}
+			System.out.println(sb.toString());
+		}
+		}
+	
+
+------------------------------------------------------------------------	
+get the first 3 marks and sum
+
+package Set1;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+
+public class ClassSet1 {
+	
+	public static int averageOfMarks(Map<Integer,Integer> m1){
+		int n=0,c=0;
+		Iterator<Integer> i=m1.keySet().iterator();
+		ArrayList<Integer>l=new ArrayList<Integer>();
+		int max=0;
+		while(i.hasNext()){
+		int a=i.next();
+		int b=m1.get(a);
+		l.add(b);
+		
+		
+		}
+		Collections.sort(l);
+		Collections.reverse(l);
+		System.out.println(l);
+		n=l.get(0)+l.get(1)+l.get(2);
+		System.out.println(n);
+		return (n/3);
+		}
+		public static void main(String[] args) {
+		Map<Integer,Integer> m1=new HashMap<Integer,Integer>();
+		m1.put(367, 89);
+		m1.put(368, 98);
+		m1.put(369, 92);
+		m1.put(366, 74);
+		m1.put(365, 67);
+		System.out.println(averageOfMarks(m1));
+		
+		}
+		}
+	
+
+-------------------------------------------------------------------------------------------
+
+MAX 3 elements
+min 3 elements
+
+package Set1;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+
+public class ClassSet1 {
+	
+	public static void main(String[] args) {
+		ArrayList<Integer>al=new ArrayList<Integer>();
+		al.add(3);
+		al.add(1);
+		al.add(11);
+		al.add(19);
+		al.add(17);
+		al.add(0);
+		al.add(1);
+		al.add(16);
+		al.add(30);
+		al.add(70);
+		getvalues(al);
+		}
+		public static void getvalues(ArrayList<Integer>
+		al) {
+			int n=4;
+			ArrayList<Integer>l=new ArrayList<Integer>();
+			ArrayList<Integer>l1=new ArrayList<Integer>();
+			Collections.sort(al);
+			System.out.println(al);
+			for(int i=0;i<n;i++)
+			{
+				l.add(al.get(i));
+			}
+			System.out.println(l);
+			Collections.reverse(al);
+			for(int i=0;i<n;i++)
+			{System.out.println(al.get(i));
+				l1.add(al.get(i));
+			}
+			Collections.reverse(l1);
+			for(int i=0;i<l1.size();i++)
+			{
+				l.add(l1.get(i));
+			}
+		System.out.println(l);	
+		}
+		}
+	
+
+	
+
+
+--------------------------------------------------------------------------------------------------
+
+
+
+
+{12,12.3,1,2,4.56667,344}
+
+
+
+    public static void main(String args[])
+    {
+      
+      
+      //String[] input1={"12","23"};
+      //String[] input1={"12","23.7"};
+      //String[] input1={"12.23","23."};
+      //String[] input1={"12","23","adas"};
+      //String[] input1={"12","23","adas","a1"};
+      //String[] input1={"12","23","adas","1a"};
+      String[] input1={"asd23","123a","a42.23","12.24","12.54"};
+       stringOfDigits(input1);
+                  
+    }
+    public static void stringOfDigits(String[] input1) 
+    {
+      
+      float fin=0,sum=0;
+      for(int i=0;i<input1.length;i++)
+            {
+                  String s1=input1[i];
+                  int n=0;
+                        for(int j=0;j<s1.length();j++)
+                              {
+                                    char c1=s1.charAt(j);
+                                          if(Character.isLetter(c1))
+                                                n=1;
+                                          
+                              }
+                        if(s1.charAt(s1.length()-1)=='.')
+                        {
+                              n=1;
+                              //System.out.println("n:");
+                        }
+                              
+                                                      if(n!=1)
+                                                      {
+                                                                  fin=Float.parseFloat(s1);                                        
+                                                                  sum=sum+fin;
+                                                      }
+                                                      else if(n==-1)
+                                                            System.out.println("not a number");
+            }
+                        
+
+
+String x=String.valueOf(sum);
+                        //String x=Float.toString(sum);
+                        
+                        StringBuffer sb=new StringBuffer();
+                        StringTokenizer str= new StringTokenizer(x,".");
+                        
+                        String s1=str.nextToken();
+                        String s2=str.nextToken();
+                        
+                        if(s2.equals("0"))
+                        {
+                              
+                        System.out.println(s1); 
+                              
+                              
+                        }
+                        
+                        else
+                              
+                              System.out.println(sb.append(s1).append(".").append(s2));
+                        
+                        
+                        
+
+    }
+
+-------------------------------------------------------------------------------------------------------------------
+	 public static void main(String args[])
+	    {
+	      
+	      
+	    //  String[] input1={"12","23"};
+	      //String[] input1={"12","23.7"};
+	      String[] input1={"12.23","23."};
+	      //String[] input1={"12","23a","adas"};
+	      //String[] input1={"12","23","adas","a1"};
+	      //String[] input1={"12","23","adas","1a"};
+	      //String[] input1={"asd23","123a","a42.23","12.24","12.54"};
+	       stringOfDigits(input1);
+	                  
+	    }
+	    public static void stringOfDigits(String[] s) 
+	    {
+	    	int n=0;
+	    	float sum=0;
+	    	for(int i=0;i<s.length;i++)
+	    	{n=0;
+	    		for(int j=0;j<s[i].length();j++)
+	    		{
+	    			if(Character.isDigit(s[i].charAt(j)) || s[i].charAt(j)=='.')
+	    			{
+	    				n=1;
+	    			}
+	    			else
+	    			{
+	    				n=0;
+	    				break;
+	    			}
+	    			
+	    	}
+	    		if(s[i].charAt(s[i].length()-1)=='.')
+	    		{
+	    			n=1;
+	    		}
+	    	
+	    		if(n==1)
+    			{
+    				sum=sum+Float.parseFloat(s[i]);
+    			}	
+	    		
+	    		
+	    	}
+	    	
+	    	String a=String.valueOf(sum);
+	    	StringTokenizer st=new StringTokenizer(a,".");
+	    	String a1=st.nextToken();
+	    	String a2=st.nextToken();
+	    	StringBuffer sb=new StringBuffer();
+	    	if(a2.equals("0"))
+	    	{
+	    		sb.append(a1);
+	    	}
+	    	else
+	    	{
+	    		sb.append(a1).append(".").append(a2);
+	    	}
+	    	
+	    	System.out.println(sb.toString());
+	    	
+	}
+}
+
+
+-----------------------------------------------------------------------------------------------------
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+
+public class Main
+{
+public static void main(String[] args) {
+Map<Integer,Integer> m1=new HashMap<Integer,Integer>();
+m1.put(1, 69);
+m1.put(2, 98);
+m1.put(3, 92);
+m1.put(4, 74);
+m1.put(5, 67);
+averageOfMarks(m1);
+}
+public static void averageOfMarks(Map<Integer,Integer> m1){
+      
+Iterator<Integer> itr=m1.keySet().iterator();
+ArrayList<Integer > al=new ArrayList<Integer >();
+Map<Integer,Integer> m2=new HashMap<Integer,Integer>();
+
+while(itr.hasNext()){
+      int key=itr.next();
+      int value=m1.get(key);
+      al.add(value);
+      }
+      Collections.sort(al);Collections.sort(al, Collections.reverseOrder());
+      System.out.println("sorted"+al);
+      loop:
+      for(int i=0;i<3;i++)
+      {
+            Iterator<Integer> itr1=m1.keySet().iterator();
+            while(itr1.hasNext())
+                  {
+            int key=itr1.next();
+                  int value=m1.get(key);
+                  if(value==al.get(i))
+                        {
+                              m2.put(key, value);
+                              continue loop;
+                        }
+                }
+              }
+
+System.out.println(m2);
+                  }
+      }
+
+--------------------------------------------------------------------------------------------------------------
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Collections;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.TreeMap;
+
+
+public class User {
+	 public static void main(String[] args)  {
+	 HashMap<String,String> m1=new HashMap<String,String>();
+     m1.put("101","02/02/2001");
+     m1.put("102","02/02/1997");
+     m1.put("103","02/02/1996");
+     HashMap<String,Integer> m2=new HashMap<String,Integer>();
+     m2.put("101",1000);
+     m2.put("102",20000);
+     m2.put("103",30000);
+     
+     Iterator<String>itr=m1.keySet().iterator();
+    // Calendar cal=Calendar.getInstance();
+     HashMap<String, Integer>t=new HashMap<String, Integer>();
+     SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+     
+     Date d1=new Date();
+     
+     for(Entry<String,String> entry : m1.entrySet())
+     {
+    	 Calendar cal=Calendar.getInstance();
+    	 String key =entry.getKey();
+    	 String sdob = entry.getValue();
+    	 Date dob;
+    	 
+    	 try {
+			dob=sdf.parse(sdob);
+			cal.setTime(dob);
+			cal.add(Calendar.YEAR, 15);
+			Date  ad1= cal.getTime();
+			int v =m2.get(key);
+			if (ad1.after(d1)&& v>=10000)
+			{
+				
+				v=v+100;
+				t.put(key, v);
+				
+			}
+			else
+			{
+				 cal.setTime(dob);
+				 cal.add(Calendar.YEAR, 18);
+				 Date  ad2= cal.getTime();
+				 if (ad2.before(d1))
+				 {
+					
+						v=v+200;
+						t.put(key, v);
+				 }
+				
+			}
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	 
+    	 
+     }
+     System.out.println(m1);
+     System.out.println(t);
+     	
+	}
+}
+
+---------------------------------------------------------------------------------------------------------------------------
+TREE MAP
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Iterator;
+
+public class Main {
+	public static void main(String[] args) {
+		HashMap<String, String> m1 = new HashMap<String, String>();
+		m1.put("101", "02/02/2000");
+		m1.put("102", "02/02/1990");
+		m1.put("103", "02/02/1996");
+		HashMap<String, Integer> m2 = new HashMap<String, Integer>();
+		m2.put("101", 1000);
+		m2.put("102", 20000);
+		m2.put("103", 30000);
+		Iterator<String> itr = m1.keySet().iterator();
+		HashMap<String, Integer> m3 = new HashMap<String, Integer>();
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		Calendar cal = Calendar.getInstance();
+		Date d1 = new Date();
+		int dis = 0;
+		while (itr.hasNext()) {
+			String s = itr.next();
+			String s1 = m1.get(s);
+			if(m2.containsKey(s))
+			{
+			dis = m2.get(s);
+			try {
+				Date dob = sdf.parse(s1);
+				cal.setTime(dob);
+				cal.add(Calendar.YEAR, 22);
+				Date d3 = cal.getTime();
+				if (d3.before(d1)) {
+					dis = 22;
+				}
+
+				else {
+					cal.setTime(dob);
+					cal.add(Calendar.YEAR, 18);
+					Date d4 = cal.getTime();
+					if (d4.before(d1)) {
+						dis = 18;
+					}
+
+					else {
+						cal.setTime(dob);
+						cal.add(Calendar.YEAR, 15);
+						Date d5 = cal.getTime();
+						if (d5.before(d1)) {
+							dis = 15;
+						} else {
+							dis = 0;
+						}
+
+					}
+
+				}
+				m3.put(s, dis);
+			
+
+			}
+
+			catch (ParseException e) {
+				// TODO: handle exception
+			}
+			}
+
+		}
+		System.out.println(m3);
+
+	}
+
+}
+
+
+___________________________________________________________________________________________________________________________________________
+
+
+MOCK TEST 
+
+import java.util.Arrays;
+
+
+public class UserMainCode1 {
+	 static String[] output;
+	 
+	    public static void modifiedArray(String[] input1) {
+	    	
+	    	output=new String[input1.length];
+	 Arrays.sort(input1);
+	 int n=input1.length;
+	 int size=n/2;
+	 
+	 if((n/2)!=0)
+	 {
+		
+			 size=n/2+1;
+		 }
+	 for(int i=0;i<size;i++)
+	 {
+		 output[i]=input1[i].toUpperCase();
+	 }
+	 for(int i=size;i<n;i++)
+	 {
+		 output[i]=input1[i].toLowerCase();
+	 }
+	 		 
+	    }
+}
+
+------------------------------------------------------------
+import java.util.StringTokenizer;
+
+
+public class UserMainCode2 {
+	 public static String getSum(double n) {
+		 int d=0,sum=0,d1=0,sum1=0;
+	    	
+		 String s=String.valueOf(n);
+		 StringTokenizer sb=new StringTokenizer(s,".");
+		 String s1=sb.nextToken();
+		 String s2=sb.nextToken();
+		 int n1=Integer.parseInt(s1);
+		 int n2=Integer.parseInt(s2);
+		 while(n1!=0)
+		 {
+			 d=n1%10;
+			 sum=sum+d;
+			 n1=n1/10;
+		 }
+		 while(n2!=0)
+		 {
+			 d1=n2%10;
+			 sum1=sum1+d1;
+			 n2=n2/10;
+		 }
+		 
+String s5=String.valueOf(sum)+":"+String.valueOf(sum1);
+		 return s5;
+		 
+	    }
+}
+
+-------------------------------------------------------------------
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Iterator;
+
+public class UserMainCode3 {
+
+    public static ArrayList<Integer> getList(HashMap<Integer,String> inputMap) throws ParseException {
+ Date d1=new Date();
+    	ArrayList<Integer> al=new ArrayList<Integer>();
+ Iterator<Integer> itr=inputMap.keySet().iterator();
+ while(itr.hasNext())
+ {int n3=itr.next();
+	 String s3=inputMap.get(n3);
+	 SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/yyyy");
+	 Date d2=sdf.parse(s3);
+	 Calendar cal=Calendar.getInstance();
+	 cal.setTime(d2);
+	 cal.add(Calendar.YEAR,18);
+	 Date d3=cal.getTime();
+	 if(d3.before(d1))
+	 {
+	 
+		 al.add(n3);
+		 
+	 }
+	 
+	 
+ }
+ return al;
+ 
+     }
+}
+---------------------------------------------------------------------------------------------------------
+
+duplicate numbers
+__________________________________________________________________________________________________
+
+#include<stdio.h>
+int k;
+int output[50];
+void eliminateDuplicate(int a[],int n);
+int main()
+{
+int a[50],n,i,j;
+scanf("%d",&n);
+//fill the code here
+  if(n<0)
+  {
+    printf("invalid input");
+    return 0;
+  }
+  
+
+for(i=0;i<n;i++)
+{
+scanf("%d",&a[i]);
+//fill the code here
+if(a[i]<0)
+{
+  printf("\n invalid input");
+  return 0;
+}
+}
+  
+eliminateDuplicate(a,n);
+for(j=0;j<k;j++)
+{
+printf("%d",output[j]);
+}
+return 0;
+}
+
+
+void eliminateDuplicate(int a[],int n)
+{
+
+  
+int j,i;
+
+for(i=0;i<n;i++)
+{
+for(j=i+1;j<n;j++)
+{
+if(a[i]==a[j])
+{
+a[j]=-1;
+}
+}
+}
+for(i=0;i<n;i++)
+{
+if(a[i]>0)
+{
+output[k]=a[i];
+k++;
+}
+}
+
+}
+--------------------------------------------------
+
+public class Main {
+	  public static void main(String[] args) {
+          String input1="HelloWorld";
+          int input2=2;
+          System.out.println(deletingtheCharOccuringTwice(input1,input2));
+          }
+          public static String deletingtheCharOccuringTwice(String input1, int input2) {
+          StringBuffer sb=new StringBuffer(input1);
+          int c=1;
+         
+          for(int i=0;i<sb.length();i++){
+          c=1;
+          for(int j=i+1;j<sb.length();j++)
+          if(sb.charAt(i)==sb.charAt(j))
+          c++;
+          if(c>=input2){
+          for(int j=i+1;j<sb.length();j++)
+          if(sb.charAt(i)==sb.charAt(j))
+          {
+          sb.deleteCharAt(j);
+         
+          }
+          if(c==input2)
+          {
+          sb.deleteCharAt(i);
+         
+          }
+         
+          } }
+          return sb.toString();
+          }
+}
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Using entry set
+
+import java.io.ObjectInputStream.GetField;
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Map.Entry;
+
+
+
+public class CopyOfMain {
+
+      
+      public static void main(String[] args) throws ParseException {
+            
+Map<Integer,Integer> m1=new HashMap<Integer,Integer>();
+m1.put(101, 3);
+m1.put(102, 1);
+m1.put(103, 5);
+Map<Integer,Integer> m2=new HashMap<Integer,Integer>();
+
+
+/*int max=0;*/
+
+LinkedHashMap<Integer,Integer> m3=new LinkedHashMap<Integer,Integer>();
+ArrayList<Integer>al=new ArrayList<Integer>();
+
+
+Iterator<Integer>itr=m1.keySet().iterator();
+System.out.println(m1);
+while(itr.hasNext())
+{
+      int n=itr.next();
+      int n1=m1.get(n);
+   al.add(n1);
+     
+      }
+Collections.sort(al);
+System.out.println(al);
+Collections.reverse(al);
+System.out.println(al);
+System.out.println(m2);
+
+
+
+
+for(int i=0;i<al.size();i++)
+{
+for(Entry<Integer, Integer> entry:m1.entrySet())
+{
+      int v=entry.getValue();
+      if(v==al.get(i))
+      {
+            int k=entry.getKey();
+            m3.put(k, v);
+            
+      }
+}
+}
+
+System.out.println(m3);
+
+
+      }
+
+
+}
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+
+To find age of a person :
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
+public class Main {
+	public static int dateDifference(String s1) throws ParseException {
+		SimpleDateFormat sd = new SimpleDateFormat("dd/MM/yyyy");
+		Date d = sd.parse(s1);
+		Calendar c = Calendar.getInstance();
+		c.setTime(d);
+		long d1 = c.getTimeInMillis();
+		Date n = new Date();
+		c.setTime(n);
+		long d2 = c.getTimeInMillis();
+		int f = Math.abs((int) ((d1 - d2) / (1000 * 3600 * 24)));
+		int nf = f / 365;
+		return nf;
+	}
+
+	public static void main(String[] args) throws ParseException {
+		String s1 = "27/12/2009";
+		System.out.println(dateDifference(s1));
+	}
+}
+
+
+
+
+
+
+
+

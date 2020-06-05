@@ -1,0 +1,7 @@
+1.consecutive two 100 s present or not in an given input array
+2.interchange first and last character from string
+3.sort the given string array and assign it to the output array in lowercase letter
+4.given hashmap name and key ,based on marks create another hashmap and assign name according to pass or fail
+if marks >=60 pass
+if marks>60 fail
+5.common and unique String from two input string arrray.but do not count the duplicate elements

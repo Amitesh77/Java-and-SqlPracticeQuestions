@@ -1,0 +1,695 @@
+32.  Employee Bonus
+
+A Company wants to give away bonus to its employees. You have been assigned as the programmer to automate this process. You would like to showcase your skills by creating a quick prototype. The prototype consists of the following steps:
+1.   Read Employee details from the User. The details would include id, DOB (date of birth) and salary in the given order. The datatype for id is integer, DOB is string and salary is integer.
+2.   You decide to build two hashmaps. The first hashmap contains employee id as key and DOB as value, and the second hashmap contains same employee ids as key and salary as value.
+3.   If the age of the employee in the range of 25 to 30 years (inclusive), the employee should get bonus of 20% of his salary and in the range of 31 to 60 years (inclusive) should get 30% of his salary. store the result in TreeMap in which Employee ID as key and revised salary as value. Assume the age is caculated based on the date 01-09-2014. (Typecast the bonus to integer).
+4.   Other Rules:
+a. If Salary is less than 5000 store -100.
+b. If the age is less than 25 or greater than 60 store -200.
+c. a takes more priority than b i.e both if a and b are true then store -100.
+5.   You decide to write a function calculateRevisedSalary which takes the above hashmaps as input and returns the treemap as output. Include this function in class UserMainCode.
+
+
+Create a Class Main which would be used to read employee details in step 1 and build the two hashmaps. Call the static method present in UserMainCode.
+Input and Output Format:
+Input consists of employee details. The first number indicates the size of the employees. The next three values indicate the employee id, employee DOB and employee salary. The Employee DOB format is “dd-mm-yyyy”
+Output consists of a single string.
+Refer sample output for formatting specifications.
+Sample Input 1:
+2
+1010
+20-12-1987
+10000
+2020
+01-01-1985
+14400
+
+
+Sample Output 1:
+1010
+12000
+2020
+17280
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Scanner;
+import java.util.TreeMap;
+
+
+
+public class UserMainCode {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		
+		HashMap<Integer, String>h1=new HashMap<Integer, String>();
+		HashMap<Integer, Integer>h2=new HashMap<Integer, Integer>();
+		int l=4;
+		for(int i=0;i<l;i++)
+		{
+			h1.put(1, "02/01/1985");
+			h1.put(2, "07/02/1950");
+			h1.put(3, "10/09/1989");
+			h1.put(4, "09/06/1978");
+		}
+		for(int i=0;i<l;i++)
+		{
+			h2.put(1, 4000);
+			h2.put(2, 5000);
+			h2.put(3, 10000);
+			h2.put(4, 30000);
+		}
+		TreeMap<Integer, Integer>tm=new TreeMap<Integer, Integer>();
+		Iterator<Integer>itr=h1.keySet().iterator();
+	String g="01/09/2014";
+	int b=0;
+		while(itr.hasNext())
+		{
+			int k=itr.next();
+			String v=h1.get(k);
+			SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/yyyy");
+			sdf.setLenient(false);
+			try{
+			Calendar cal=Calendar.getInstance();
+			Date d=sdf.parse(v);
+			Date c=sdf.parse(g);
+			cal.setTime(d);
+			long y=cal.getTimeInMillis();
+			cal.setTime(c);
+			long y1=cal.getTimeInMillis();
+			int k1=Math.abs((int) ((y-y1)/(1000*3600*24)));
+			int f=k1/365;
+			if(h2.containsKey(k))
+			{
+				int sl=h2.get(k);
+			if(sl<5000)
+			{
+				b=-100;
+			}
+			else if(f>=25&&f<=30)
+			{
+				b=sl+sl*(20/100);
+			}
+			else if(f>=31&&f<=60)
+			{
+				b=(int)(sl+(sl*0.3));
+			}
+			else if(f<25||f>60)
+			{
+				b=-200;
+			}
+			}
+			tm.put(k, b);
+			}
+			catch(ParseException e){
+				e.printStackTrace();
+				
+			}
+		}
+		
+		System.out.println(tm);
+	}
+}
+	
+
+
+
+
+(OR)
+
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Scanner;
+import java.util.TreeMap;
+ 
+public class UserMainCode {
+ 
+    public static void main(String[] args) {
+         Scanner sc = new Scanner(System.in);
+         HashMap<Integer, String> h1 = new HashMap<Integer, String>();
+         HashMap<Integer, Integer> h2 = new HashMap<Integer, Integer>();
+         int l = 4;
+         for (int i = 0; i < l; i++) {
+             h1.put(1, "02/01/1985");
+             h1.put(2, "07/02/1950");
+             h1.put(3, "20/12/1987");
+             h1.put(4, "01/09/1984");
+         }
+         for (int i = 0; i < l; i++) {
+             h2.put(1, 4000);
+             h2.put(2, 5000);
+             h2.put(3, 10000);
+             h2.put(4, 14400);
+         }
+         TreeMap<Integer, Integer> tm = new TreeMap<Integer, Integer>();
+         Iterator<Integer> itr = h1.keySet().iterator();
+         String g = "01/09/2014";
+         int b = 0;
+         while (itr.hasNext()) {
+             int k = itr.next();
+             String v = h1.get(k);
+             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+             sdf.setLenient(false);
+             try {
+                 Calendar cal = Calendar.getInstance();
+                 // cal.add(Calendar.YEAR, 18);
+                 Date d = sdf.parse(v);
+                 Date c = sdf.parse(g);
+                 cal.setTime(d);
+                 cal.add(Calendar.YEAR, 25);
+                 Date d25 = cal.getTime();
+                
+                 cal.setTime(d);
+                 cal.add(Calendar.YEAR, 30);
+                 Date d30 = cal.getTime();
+                 cal.setTime(d);
+                 cal.add(Calendar.YEAR, 60);
+                 Date d60 = cal.getTime();
+                 cal.setTime(d);
+                 cal.add(Calendar.YEAR, 31);
+                 Date d31 = cal.getTime();
+ 
+                 if (h2.containsKey(k)) {
+                      int sl = h2.get(k);
+                      if (sl < 5000) {
+                          b = -100;
+                      } else if (d25.before(c) && d30.after(c)||d25.equals(c)||d30.equals(c)) {
+                    	   b = (int) (sl + (sl * 0.2));
+                      }
+ 
+                      else if (d31.before(c) && d60.after(c)||d31.equals(c)||d60.equals(c)) {
+                          b = (int) (sl + (sl * 0.3));
+                      } else if (d25.after(c) || d60.before(c)) {
+                          b = -200;
+                      }
+                 }
+ 
+                 tm.put(k, b);
+             } catch (ParseException e) {
+                 e.printStackTrace();
+             }
+         }
+         System.out.println(tm);
+    }
+}
+ 
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+81.  Discount Rate Calculation
+
+Write a  program to calculate discount of the acccount holders based on the transaction amount and registration date using below mentioned prototype:
+1. Read account details from the User. The details would include id, DOR (date of registration) and transaction amount in the given order. The datatype for id is string, DOR is string and transaction amount is integer.
+2. You decide to build two hashmaps. The first hashmap contains employee id as key and DOR as value, and the second hashmap contains same employee ids as key and amount as value.
+3. Discount Amount as on 01/01/2015:
+    a. If the transaction amount greater than or equal to 20000 and registration greater than or equal to 5     year then discount rate is 20% of transaction amount.
+    b. If the transaction amount greater than or equal to 20000 and registration less then to 5 year then     discount rate is 10% of transaction amount.
+    c. If the transaction amount less than to 20000 and registration greater than or equal to 5 year then     discount rate is 15% of transaction amount.
+    d. If the transaction amount less than to 20000 and registration less then to 5 year then discount rate     is 5% of transaction amount.
+4. You decide to write a function calculateDiscount which takes the above hashmaps as input and returns the treemap  as output. Include this function in class UserMainCode.
+
+Create a Class Main which would be used to read employee details in step 1 and build the two hashmaps. Call the static method present in UserMainCode.
+Input and Output Format:
+Input consists of transaction details. The first number indicates the size of the employees. The next three values indicate the user id, user DOR and transaction amount. The DOR (Date of Registration) format is “dd-mm-yyyy”
+Output consists of a string which has the user id and discount amount one in a line for each user.
+Refer sample output for formatting specifications.
+Sample Input 1:
+4
+A-1010
+20-11-2007
+25000
+B-1011
+04-12-2010
+30000
+C-1012
+11-11-2005
+15000
+D-1013
+02-12-2012
+10000
+Sample Output 1:
+A-1010:5000
+B-1011:3000
+C-1012:2250
+D-1013:500
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Scanner;
+import java.util.TreeMap;
+
+
+
+public class UserMainCode {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		
+		HashMap<Integer, String>h1=new HashMap<Integer, String>();
+		HashMap<Integer, Integer>h2=new HashMap<Integer, Integer>();
+		int l=4;
+		for(int i=0;i<l;i++)
+		{
+			h1.put(1, "01/01/2010");
+			h1.put(2, "07/02/2009");
+			h1.put(3, "10/09/2012");
+			h1.put(4, "09/06/2008");
+		}
+		for(int i=0;i<l;i++)
+		{
+			h2.put(1, 20000);
+			h2.put(2, 5000);
+			h2.put(3, 10000);
+			h2.put(4, 30000);
+		}
+		TreeMap<Integer, Integer>tm=new TreeMap<Integer, Integer>();
+		Iterator<Integer>itr=h1.keySet().iterator();
+	String g="01/01/2015";
+	int b=0;
+		while(itr.hasNext())
+		{
+			int k=itr.next();
+			String v=h1.get(k);
+			SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/yyyy");
+			sdf.setLenient(false);
+			try{
+			Calendar cal=Calendar.getInstance();
+			Date d=sdf.parse(v);
+			
+			cal.setTime(d);
+		cal.add(Calendar.YEAR, 5);
+		Date d1=cal.getTime();
+		System.out.println(d1);
+		
+		Date c=sdf.parse(g);
+		System.out.println(c);
+	
+			
+				int sl=h2.get(k);
+				if(d1.equals(c)&&sl==20000)
+				{System.out.println(1);
+					b=0;
+				}
+				else if(d1.after(c)&&sl>=20000)
+				{
+					b=(int)(sl*0.1);
+				}
+				else if(d1.before(c)||d1.equals(c)&&sl<20000)
+				{
+					b=(int)(sl*1.5);
+				}
+				else if(d1.after(c)&&sl<20000)
+				{
+					b=(int)(sl*0.5);
+				}
+					
+				tm.put(k, b);
+				
+			
+		
+			}
+			catch(ParseException e){
+				e.printStackTrace();
+				
+			}
+		}
+		
+		System.out.println(tm);
+	}
+}
+	
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+4.      Given a hashmap<String,String> as <Name,DOB> store those names into output arraylist who have valid DOB’s and are not born in leap year. (Valid dob formats are- dd.MM.yyyy; dd/MM/yy; dd-MM-yyyy.)
+
+Input 1={{“Aravind”,”12/03/94”},{“Pranav”,”04.02.1992”},{“Kiri”,”15-06-1993”}}
+Output 1=[“Aravind”,”Pranav”,”Kiri”]
+
+Input 2={{“Gautam”,”03/02/1992”},{“Vishakha”,”02.03.94”},{“Vishal”,”12-12-1995”}}
+Output 2=[“Vishal”]
+
+
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.HashMap;
+import java.util.Iterator;
+
+
+public class Main {
+
+		public static void main(String[] args) {
+			
+			HashMap<Integer, String>h1=new HashMap<Integer, String>();int l=4;
+			for(int i=0;i<l;i++)
+			{
+				h1.put(1, "01.01.2010");
+				h1.put(2, "07/02/16");
+				h1.put(3, "10\09\2012");
+				h1.put(4, "09/06/2008");
+			}
+			Iterator<Integer>itr=h1.keySet().iterator();
+			String g="01/01/2015";
+		ArrayList<Integer>al=new ArrayList<Integer>();
+				while(itr.hasNext())
+				{boolean b=false;
+					int k=itr.next();
+					String s=h1.get(k);
+			
+			if(s.matches("[0-9]{2}[.]{1}[0-9]{2}[.]{1}[0-9]{4}"))
+			{
+			SimpleDateFormat sdf=new SimpleDateFormat("dd.MM.yyyy");
+			sdf.setLenient(false);
+			try
+			{
+			Date d1=sdf.parse(s);
+			Calendar cal1=Calendar.getInstance();
+			cal1.setTime(d1);
+			int n=cal1.get(Calendar.YEAR);
+			GregorianCalendar cal=new GregorianCalendar();
+			
+			b=cal.isLeapYear(n);
+			if(b==false)
+			{
+				al.add(k);
+			}
+		
+			} catch (ParseException e) {
+			System.out.println(-1);
+			}
+			}
+			else if(s.matches("[0-9]{2}[/]{1}[0-9]{2}[/]{1}[0-9]{2}"))
+			{
+			SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/yyyy");
+			sdf.setLenient(false);
+			try
+			{
+			Date d1=sdf.parse(s);
+			Calendar cal1=Calendar.getInstance();
+			cal1.setTime(d1);
+			int n=cal1.get(Calendar.YEAR);
+			GregorianCalendar cal=new GregorianCalendar();
+			
+			b=cal.isLeapYear(n);
+			if(b==false)
+			{
+				al.add(k);
+			}
+		
+			} catch (ParseException e) {
+			System.out.println(-1);
+			}
+			}
+			else if(s.matches("[0-9]{2}[-]{1}[0-9]{2}[-]{1}[0-9]{4}"))
+			{
+			SimpleDateFormat sdf=new SimpleDateFormat("dd-MM-yyyy");
+			sdf.setLenient(false);
+			try
+			{
+			Date d1=sdf.parse(s);
+			Calendar cal1=Calendar.getInstance();
+			cal1.setTime(d1);
+			int n=cal1.get(Calendar.YEAR);
+			GregorianCalendar cal=new GregorianCalendar();
+			
+			b=cal.isLeapYear(n);
+			if(b==false)
+			{
+				al.add(k);
+			}
+		
+			} catch (ParseException e) {
+			System.out.println(-1);
+			}
+			}
+			
+		}
+				System.out.println(al);
+}
+}
+
+_________________________________________________________________________________________________________________________________________________
+3.      Simple String Manipulation
+
+Write a program to read a string and return a modified string based on the following rules.
+Return the String without the first 2 chars except when
+1.   keep the first char if it is 'j'
+2.   keep the second char if it is 'b'.
+Include a class UserMainCode with a static method getString which accepts a string. The return type (string) should be the modified string based on the above rules. Consider all letters in the input to be small case.
+Create a Class Main which would be used to accept Input string and call the static method present in UserMainCode.
+Input and Output Format:
+Input consists of a string with maximum size of 100 characters.
+Output consists of a string.
+Refer sample output for formatting specifications.
+Sample Input 1:
+hello
+Sample Output 1:
+llo
+Sample Input 2:
+java
+Sample Output 2:
+jva
+
+import java.util.Scanner;
+
+
+public class Main {
+
+		public static void main(String[] args) {
+			
+			Scanner sc=new Scanner(System.in);
+			String s=sc.next();
+			String s1=s.substring(0,2);
+			String s2=s.substring(2,s.length());
+			StringBuffer sb=new StringBuffer();
+			
+			if(s1.charAt(0)=='a'&&s1.charAt(1)=='b')
+			{
+				sb.append(s1).append(s2);
+			}
+			else if(s1.charAt(0)!='a'&&s1.charAt(1)!='b')
+			{
+				sb.append(s2);
+			}
+			else if(s1.charAt(0)=='a'&&s1.charAt(1)!='b')
+			{
+				sb.append(s1.charAt(0)).append(s2);
+			}
+			else if(s1.charAt(0)!='a'&&s1.charAt(1)=='b')
+			{
+				sb.append(s1.charAt(1)).append(s2);
+			}
+			
+			System.out.println(sb);
+			
+					
+}
+}
+
+_____________________________________________________________________________________________________________________________________
+
+86.Interest Calculation
+
+Write a  program to calculate amount of the acccount holders based on the below mentioned prototype:
+1. Read account details from the User. The details would include id, DOB (date of birth) and amount in the given order. The datatype for id is string, DOB is string and amount is integer.
+2. You decide to build two hashmaps. The first hashmap contains employee id as key and DOB as value, and the second hashmap contains same employee ids as key and amount as value.
+3. Rate of interest as on 01/01/2015:
+    a. If the age greater than or equal to 60 then interest rate is 10% of Amount.
+    b.If the age less then to 60 and greater than or equal to 30 then interest rate is 7% of Amount.
+    v. If the age less then to 30 interest rate is 4% of Amount.
+4. Revised Amount= principle Amount + interest rate.
+5.  You decide to write a function calculateInterestRate which takes the above hashmaps as input and returns the treemap  as output. Include this function in class UserMainCode.
+
+Create a Class Main which would be used to read employee details in step 1 and build the two hashmaps. Call the static method present in UserMainCode.
+
+Input and Output Format:
+Input consists of account details. The first number indicates the size of the acoount. The next three values indicate the user id, DOB and amount. The Employee DOB format is “dd-mm-yyyy”
+Output consists of the user id and the amount for each user one in a line.
+Refer sample output for formatting specifications.
+
+Sample Input 1:
+4
+SBI-1010
+20-01-1987
+10000
+SBI-1011
+03-08-1980
+15000
+SBI-1012
+05-11-1975
+20000
+SBI-1013
+02-12-1950
+30000
+Sample Output 1:
+SBI-1010:10400
+SBI-1011:16050
+SBI-1012:21400
+SBI-1013:33000
+
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.TreeMap;
+
+ 
+public class UserMainCode {
+ 
+	public static void main(String[] args) {
+		int l=4;
+			HashMap<String, String>h1=new HashMap<String, String>();
+			HashMap<String, Integer>h2=new HashMap<String, Integer>();
+			TreeMap<String, Integer>t=new TreeMap<String, Integer>();
+		h1.put("SBI-1010","20-01-1987");
+		h1.put("SBI-1011", "03-08-1980");
+		h1.put("SBI-1012", "05-11-1975");
+		h1.put("SBI-1013", "02-12-1950");
+		h2.put("SBI-1010", 10000);
+		h2.put("SBI-1011", 15000);
+		h2.put("SBI-1012", 20000);
+		h2.put("SBI-1013", 30000);
+		String s1="01-01-2015";
+		int r=0;
+		Iterator<String>itr=h1.keySet().iterator();
+		while(itr.hasNext())
+		{
+			String k=itr.next();
+			String v=h1.get(k);
+			SimpleDateFormat sdf=new SimpleDateFormat("dd-MM-yyyy");
+			sdf.setLenient(false);
+		
+try
+{
+	Date d=sdf.parse(v);
+	Date c=sdf.parse(s1);
+	Calendar cal=Calendar.getInstance();
+	
+	
+	cal.setTime(d);
+	cal.add(Calendar.YEAR, 30);
+	Date d30=cal.getTime();
+	
+	cal.setTime(d);
+	cal.add(Calendar.YEAR, 60);
+	Date d60=cal.getTime();
+	
+	if(h2.containsKey(k))
+	{
+		int am=h2.get(k);
+		
+		if(d60.equals(c)||d60.before(c))
+		{
+			r=(int)(am+(am*0.1));
+		}
+		else if(d30.equals(c)||(d30.before(c)&&d60.after(c)))
+		{
+			r=(int)(am+(am*0.07));
+		}
+		else if(d30.after(c))
+		{
+			r=(int)(am+(am*0.04));
+		}
+		
+		
+		
+		
+		t.put(k, r);
+		
+		
+			}
+	
+	
+	
+}
+catch(ParseException e)
+{
+	e.printStackTrace();
+}
+		}
+			
+		System.out.println(t);	
+    }
+}
+ 
+
+______________________________________________________________________________________________________________________________________________
+
+ Given a Hashmap<String,String><Name, PAN Number>, store those names into output string array who have valid pancard details.
+(eg- Input={{“Muskein”,”AHGJ376K”}{“Kartik”,”JH897JHE”}{“Sashank”,”KJUP954L”}}
+                         Output=[“Muskein”,”Sashank”]
+
+                         Input={{“Shikha”,”KJRTU87T”},{“Mounica”,”QWER765N”},{“Laavanya”,”uhfl987T”}}
+                         Output=[“Mounica”]
+
+
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.TreeMap;
+
+ 
+public class UserMainCode {
+ 
+	public static void main(String[] args) {
+		int l=4;
+			HashMap<String, String>h1=new HashMap<String, String>();
+			HashMap<String, Integer>h2=new HashMap<String, Integer>();
+			TreeMap<String, Integer>t=new TreeMap<String, Integer>();
+		h1.put("Muskein","AHGJ376K");
+		h1.put("Kartik", "JH897JHE");
+		h1.put("Sashank", "KJUP954L");
+		h1.put("Mounica", "QWER765N");
+		ArrayList<String>al=new ArrayList<String>();
+		
+		
+		int r=0;
+		Iterator<String>itr=h1.keySet().iterator();
+		while(itr.hasNext())
+		{
+			String k=itr.next();
+			String v=h1.get(k);
+		if(v.matches("[A-Z]{4}[0-9]{3}[A-Z]{1}"))
+		{
+		al.add(k);
+		}
+		
+
+		
+		
+			}
+	
+	
+	
+
+			
+		System.out.println(al);	
+    }
+}
+ 

@@ -1,0 +1,61 @@
+TO sort an hashmap using values
+
+package shhhhh;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.TreeMap;
+
+public class Main
+{
+public static void main(String[] args) {
+Map<Integer,Integer> m1=new HashMap<Integer,Integer>();
+m1.put(1, 69);
+m1.put(2, 98);
+m1.put(3, 74);
+m1.put(4, 92);
+m1.put(5, 67);
+averageOfMarks(m1);
+}
+public static void averageOfMarks(Map<Integer,Integer> m1){
+      
+Iterator<Integer> itr=m1.keySet().iterator();
+ArrayList<Integer > al=new ArrayList<Integer >();
+Map<Integer,Integer> m2=new LinkedHashMap<Integer,Integer>();
+
+while(itr.hasNext()){
+      int key=itr.next();
+      int value=m1.get(key);
+      al.add(value);
+      }
+      Collections.sort(al);Collections.sort(al, Collections.reverseOrder());
+      System.out.println("sorted"+al);
+     
+      for(int i=0;i<al.size();i++)
+      {
+    
+      for (Entry<Integer,Integer> entry : m1.entrySet()) 
+      {
+          if (entry.getValue().equals(al.get(i)))
+          {
+              System.out.println(entry.getKey());
+              m2.put(entry.getKey(), entry.getValue());
+          }
+      }
+      }
+
+     
+      
+      
+      
+
+System.out.println(m2);
+      }
+}
+
+____________________________________________________________________________________________________________________

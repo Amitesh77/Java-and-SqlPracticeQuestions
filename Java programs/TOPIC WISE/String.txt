@@ -1,0 +1,610 @@
+6) Given a method with 3 strings say search string ,Str1 and str 2 as input.write code to find out if str2 comes after str1 in the searchstring,if yes return 1 else return 2.
+Example-
+input1=geniousRajKumarDev
+input2=Raj
+input3=Dev
+output=1
+package Final;
+public class E {
+/**
+* @param args
+*/
+public static void main(String[] args) {
+String s1="geniousRajKumarDev";
+String s2="Raj";
+String s3="Dev";
+geyvalues(s1,s2,s3);
+}
+public static void geyvalues(String s1, Strings2, String s3) {
+if(s1.contains(s2)&& s1.contains(s3))
+{
+if(s1.indexOf(s2)<s1.indexOf(s3))
+{
+System.out.println(1);
+}
+else
+System.out.println(2);
+}
+}
+}
+..............................................................................................
+
+7) Given a method with a string input.Write code to get the sum of all the digits present in the given String.Return the sum as output.If there is no digit in the given string return -1 as output.
+Example:
+Input=good23bad4
+output=2+3+4=9
+package Final;
+public class F {
+/**
+* @param args
+*/
+public static void main(String[] args) {
+String s1="goodba1d";
+getvalues(s1);
+}
+public static void getvalues(String s1) {
+int sum=0;
+for(int i=0;i<s1.length();i++)
+{
+char a=s1.charAt(i);
+if(Character.isDigit(a))
+{
+int b=Integer.parseInt(String.valueOf(a));
+sum=sum+b;
+}
+}
+if(sum==0)
+{
+System.out.println(-1);
+}
+else
+System.out.println(sum);
+}
+}
+.....................................
+
+20 )Given a method with with a negative number as string input.Write code to overdate the number.if the given string conatins a valid negative number return corresponding positive number as
+ a string output else return-1.
+Example:
+input:"-94923"
+output:"94923"
+package com.Packas;
+public class B {
+public static void main(String[] args) {
+String a = "902";
+getvalues(a);
+}
+public static void getvalues(String a) {
+if (a.charAt(0) != '-') {
+System.out.println(-1);
+System.exit(0);
+}
+for (int i = 1; i < a.length(); i++) {
+if (!(Character.isDigit(a.charAt(i))) && a.charAt(0) == '-') {
+System.out.println(-1);
+System.exit(0);
+}
+}
+int b = Integer.parseInt(a);
+if (b < 0) {
+System.out.println(Math.abs(b));
+}
+}
+}
+..........................................................................
+
+37) Given a method with a string input.Write code to check total number of vowels in the given string.
+Return it as output.
+Example:
+input = "avinash"
+ouptut = 3
+package com.Packas;
+public class A {
+public static void main(String[] args) {
+String s1="avinash";
+getvalues(s1);
+}
+public static void getvalues(String s1) {
+String s2=s1.toLowerCase();
+String s3="aeiou";
+int count=0;
+for(int i=0;i<s2.length();i++)
+{
+for(int j=0;j<s3.length();j++)
+{
+if(s2.charAt(i)==s3.charAt(j))
+{
+count++;
+}
+}
+}
+System.out.println(count);
+}
+}
+..............................................................................
+
+41) Given a method with a string as input .this string is expected to contain
+a 10 digit no in the format XXX-XXX-XXXX where X is a digit
+return 1 if the given string meets this format else return -1
+example-
+input-123-456-7895
+output-1
+package com.Packas;
+public class A {
+public static void main(String[] args) {
+String s1="123-456-7890";
+getvalues(s1);
+}
+public static void getvalues(String s1) {
+if(s1.matches("[0-9]{3}[-]{1}[0-9]{3}[-]{1}[0-9]{4}"))
+{
+System.out.println(1);
+}
+else
+System.out.println(-1);
+}
+}
+......................................................................
+
+47) Given a method with a string input. Write code to check that given string is palindrome
+and contains at least two different vowels. Return 1 if the condition is satified else reurn -1.
+Note: A palindrome string is a string whose reverse string is equal to original string. Eg. nayan
+package com.Packas;
+public class A {
+public static void main(String[] args) {
+String s="nayan";
+display(s);
+}
+public static void display(String s)
+{
+String reverse="";
+int length=s.length();
+for ( int i = length - 1 ; i >= 0 ; i-- )
+reverse = reverse + s.charAt(i);
+if (s.equals(reverse))
+{ int c=0;
+for(int i=0;i<s.length();i++)
+{
+if(s.charAt(i)=='a'||s.charAt(i)=='e'||s.charAt(i)=='i'||s.charAt(i)=='o'||s.charAt(i)=='u'||s.charAt(i)=='A'||s.charAt(i)=='E'||s.charAt(i)=='I'||s.charAt(i)=='O'||s.charAt(i)=='U')
+{
+c++;
+}
+}
+if(c>=2)
+{
+System.out.println(1);
+}
+}
+else
+System.out.println("-1");
+}
+}
+.............................................................................
+
+
+49) Given a method with a string input. Write code to check if the given string is in the fromat
+"CTS-XXX" where XXX is a three digit number. Return 1 if it is in the given format else return -1.
+Example:
+Input = CTS-215
+Output=1
+package com.Packas;
+public class A {
+public static void main(String[] args) {
+String s1="CTS-214";
+getvalues(s1);
+}
+public static void getvalues(String s1) {
+if(s1.matches("(CTS)[-]{1}[0-9]{3}"))
+{
+System.out.println(1);
+}
+else
+System.out.println(-1);
+}
+}
+....................................................................
+
+53) Given amethod calculateElectricityBill() with three inputs.First input is previous reading,second input is current reading bill and last input is nper unit charge.
+Write code to calculate the current bill.
+reading format-XXXXXAAAAA where XXXXX is consumer number and AAAAA is meter reading
+Example:
+input1 = ABC2012345
+input2 = ABC2013660
+input3=4
+Bill = (12660-12345)*4
+ouptut = 315
+package com.Packas;
+public class A {
+public static void main(String[] args) {
+// TODO Auto-generated method stub
+String s1="ABC2012345";
+String s2="ABC2012660";
+int i=4;
+getvalues(s1,s2,i);
+}
+public static void getvalues(String s1, String s2, int i) {
+int a=Integer.parseInt(s1.substring(s1.length()-5,s1.length()));
+int b=Integer.parseInt(s2.substring(s2.length()-5,s2.length()));
+System.out.println(a);
+System.out.println(b);
+int diff=Math.abs(b-a)*4;
+System.out.println(diff);
+}
+}
+........................................................................
+
+56) Given a method with a string as input.Write code to count the number of characters which gets repeated 3 times consecutively and return that count(ignore case).
+If no character gets repets 3 times consecutively retutn -1.
+Example1:
+input : abcXXXabc
+output=1
+Example2:
+Input= aaaxxyzAAAx
+output =2
+package shivam;
+public class B {
+public static void main(String[] args) {
+String s1="abcXXXabcxxx";
+getvalues(s1);
+}
+public static void getvalues(String s1) {
+int count=0;
+for(int i=0;i<s1.length()-2;i++)
+{
+if((s1.charAt(i)==s1.charAt(i+1))&&(s1.
+charAt(i+1)==s1.charAt(i+2)))
+{
+count++;
+i=i+2;
+}
+}
+System.out.println(count);
+}
+}
+.....................................................................
+
+
+62) Given a merhod with a string input. Write code to test if first and last charachters are same. Incase they are same return 1 else return -1 as output. Note - Consider case.
+Example:
+Input="the picture was great"
+first charachter='t'
+last charachter='t'
+Output=1
+package shivam;
+public class B {
+/**
+* @param args
+*/
+public static void main(String[] args) {
+String s1="the picture was great";
+getvalues(s1);
+}
+public static void getvalues(String s1) {
+String a=s1.substring(0,1);
+String b=s1.substring(s1.length()-1, s1.length());
+if(a.equals(b))
+{
+System.out.println(1);
+}
+else
+System.out.println(-1);
+}
+}
+........................................................................................
+
+23.Find if a given pattern appears in both the input strings at same postions.
+input1: "hh--ww--"
+input2: "rt--er--"
+output: true(false otherwise)
+package Set1;
+public class ClassSet23 {
+public static boolean stringPattern(String s1,String s2){
+String st1=s1.length()<s2.length()?s1:s2;
+String st2=s1.length()>s2.length()?s1:s2;
+boolean b=true;
+String s=st2.substring(st1.length());
+if(s.contains("-"))
+b=false;
+else{
+loop:
+for(int i=0;i<st1.length();i++)
+if((st1.charAt(i)=='-') || (st2.charAt(i)=='-'))
+if(st1.charAt(i)!=st2.charAt(i)){
+b=false;
+break loop; }
+}
+return b;
+}
+public static void main(String[] args) {
+String s1="he--ll--";
+String s2="we--ll--";
+boolean b=stringPattern(s1,s2);
+if(b==true)
+System.out.println("same pattern");
+else
+System.out.println("different pattern");
+}
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+27. Get a input string. Find if it is a negative number, if true return the absolute value, in other cases return -1.
+input: "-123"
+output: 123
+input: "@123"
+output: -1
+package Set1;
+import java.util.*;
+public class ClassSet27 {
+public static int negativeString(String s1){
+int n1=0;
+if(s1.startsWith("-")){
+int n=Integer.parseInt(s1);
+if(n<0)
+n1=Math.abs(n);}
+else
+n1=-1;
+return n1;
+}
+public static void main(String[] args) {
+Scanner s=new Scanner(System.in);
+String s1=s.next();
+System.out.println(negativeString(s1));
+}
+}
+
+----------------------------------------------------------------------------------------------------------------------------
+
+36. find the three consecutive characters in a string. if the string consists any three
+consecutive characters return 1 else return -1
+like AAAxyzaaa will return true.
+package Set1;
+public class ClassSet36 {
+public static void main(String[] args) {
+String s1="aaaaxyzAAA";
+boolean b=consecutiveCharactersCheck(s1);
+if(b==true)
+System.out.println("presence of consecutive characters");
+else
+System.out.println("absence of consecutive characters");
+}
+public static boolean consecutiveCharactersCheck(String s1) {
+boolean b=false;
+int c=0;
+for(int i=0;i<s1.length()-1;i++)
+if((s1.charAt(i+1)-s1.charAt(i))==1)
+c++;
+if(c>=2)
+b=true;
+return b;
+}
+}
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+
+2) input:
+Searchstring s1="GeniusRajkumarDev";
+String s2="Raj";
+String s3="Dev";
+output:
+Return 1 if s2 comes before s3 in searchstring else return 2
+package Set2;
+public class ClassSET2 {
+public static void main(String[] args) {
+String srch="MaanVeerSinghKhurana";
+String s1="Veer";
+String s2="Singh";
+int n=searchString(srch,s1,s2);
+if(n==1)
+System.out.println(s1+" comes before "+s2);
+else
+System.out.println(s2+" comes before "+s1);
+}
+public static int searchString(String srch, String s1, String s2) {
+int n=0;
+int n1=srch.indexOf(s1);
+int n2=srch.indexOf(s2);
+if(n1<n2)
+n=1;
+else
+n=2;
+return n;
+}
+}
+----------------------------------------------------------------------------------------------------------||
+
+6) input1="abc2012345"
+input2="abc2112660"
+input 3=4
+here "abc**" refers to customer id.
+12345 refers to last month eb reading and 12660 refers to this month eb reading
+find the difference between two readings and multiply it by input3
+ie., output=(12660-12345)*4
+package Set2;
+public class ClassSET6 {
+public static void main(String[] args) {
+String input1="abc2012345";
+String input2="abc2112660";
+int input3=4;
+System.out.println(meterReading(input1,input2,input3));
+}
+public static int meterReading(String input1, String input2, int input3) {
+int n1=Integer.parseInt(input1.substring(5, input1.length()));
+int n2=Integer.parseInt(input2.substring(5, input2.length()));
+int n=Math.abs((n2-n1)*input3);
+return n;
+}
+}
+-------------------------------------------------------------------------------------------------------||
+
+14) find the no.of charcters,that has repeated 3 consecutive times
+input1:"aaabbccc"
+ouput1=2;
+package Set2;
+public class ClassSET14 {
+public static void main(String[] args) {
+String input1="aaabbccc";
+System.out.println(consecutiveRepeatitionOfChar(input1));
+}
+public static int consecutiveRepeatitionOfChar(String input1) {
+int c=0;
+int n=0;
+for(int i=0;i<input1.length()-1;i++){
+if(input1.charAt(i)==input1.charAt(i+1))
+n++;
+else
+n=0;
+if(n==2)
+c++; }
+return c;
+}
+}
+-----------------------------------------------------------------------------------------------------------||
+
+
+
+16)Get all the numbers alone from the string and return the sum.
+Input"123gif"
+Output:6
+package Set2;
+public class ClassSET16 {
+public static void main(String[] args) {
+String s="1234gif";
+System.out.println(summationOfNosInaString(s));
+}
+public static int summationOfNosInaString(String s) {
+int n=0;
+for(int i=0;i<s.length();i++){
+char c=s.charAt(i);
+if(Character.isDigit(c)){
+String s1=String.valueOf(c);
+n+=Integer.parseInt(s1);} }
+return n;
+}
+}
+---------------------------------------------------------------------------------------------------------||
+
+
+20) for the given string display the middle 2 value, case satisfies only if string is of even length
+ip - java
+op - av
+package Set2;
+public class ClassSET20 {
+public static void main(String[] args) {
+String s1="sumithra";
+System.out.println(printingSubstringOfMiddleChars(s1));
+}
+public static String printingSubstringOfMiddleChars(String s1) {
+String s2=s1.substring((s1.length()/2)-1, (s1.length()/2)+1);
+return s2;
+}
+}
+--------------------------------------------------------------------------------------------------------||
+
+26) prove whether a number is ISBN number or not
+input="0201103311"
+ISBN number: sum=0*10 +2*9+ 0*8 +1*7+ 1*6 +0*5+ 3*4 +3*3+ 1*2 +1*1
+sum%11==0 then it is ISBN number
+package Set3;
+public class ClassSeT26 {
+public static void main(String[] args) {
+String ip="0201103311";
+boolean b=ISBNnumber(ip);
+if(b==true)
+System.out.println("valid ISBN number");
+else
+System.out.println("check ur data");
+}
+public static boolean ISBNnumber(String ip) {
+boolean b=false;
+int sum=0;
+for(int i=0,j=ip.length();i<ip.length();i++,j--){
+String s=String.valueOf(ip.charAt(i));
+int n=Integer.parseInt(s);
+sum+=(n*j); }
+//System.out.println(sum);
+if(sum%11==0)
+b=true;
+return b;
+}
+}
+----------------------------------------------------------------------------------------------------||
+
+30) Return 1 if the last & first characters of a string are equal else
+return -1. Consider case.
+Eg: Input = "this was great"
+Output= 1
+package Set3;
+public class ClassSeT30 {
+public static void main(String[] args) {
+String input="this was great";
+System.out.println(checkForFirstAndLastChar(input));
+}
+public static int checkForFirstAndLastChar(String input) {
+int n=0;
+if(input.charAt(0)==input.charAt(input.length()-1))
+n=1;
+else n=-1;
+return n;
+}
+}
+----------------------------------------------------------------------------------------------------||
+
+33) In a string check whether all the vowels are present
+if yes return 1 else 2.
+ex: String 1="education"
+output=1.
+package Set3;
+public class ClassSeT33 {
+public static void main(String[] args) {
+String s1="education";
+System.out.println(vowelsCheck(s1));
+}
+public static boolean vowelsCheck(String s1) {
+boolean b=false;
+int n1=0,n2=0,n3=0,n4=0,n5=0;
+for(int i=0;i<s1.length();i++){
+char c=s1.charAt(i);
+if(c=='a' || c=='A')
+n1++;
+if(c=='e' || c=='E')
+n2++;
+if(c=='i' || c=='I')
+n3++;
+if(c=='o' || c=='O')
+n4++;
+if(c=='u' || c=='U')
+n5++;}
+if(n1==1 && n2==1 && n3==1 && n4==1 && n5==1)
+b=true;
+return b;
+}
+}
+----------------------------------------------------------------------------------------------------||
+
+
+
+46) input1="aBrd";
+input2="aqrbA";
+input3=2;
+output1=boolean true;
+2nd char of ip1 and last 2nd char of ip2 show be equal
+package Set3;
+public class ClassSeT46 {
+public static void main(String[] args) {
+String ip1="aBrd";
+String ip2="aqrbA";
+int ip3=2;
+System.out.println(charCheck(ip1,ip2,ip3));
+}
+public static boolean charCheck(String ip1, String ip2, int ip3){
+boolean b=false;
+String s1=String.valueOf(ip1.charAt(ip3-1));
+String s2=String.valueOf(ip2.charAt(ip2.length()-ip3));
+if(s1.equalsIgnoreCase(s2))
+b=true;
+return b;
+}
+}
+----------------------------------------------------------------------------------------------------||
+

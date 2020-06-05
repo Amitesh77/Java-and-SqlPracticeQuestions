@@ -1,0 +1,1379 @@
+1.Find the number of vowels in a given string              (RAJKUMAR)
+	Input1:Ã¢â‚¬ NewyorkÃ¢â‚¬ 
+ 	Output1:2
+	Hint:irrespective  of case
+ans:
+public class Q1 {
+	int count = 0;
+
+	public int vowels(String s) {
+		for (int i = 0; i < s.length(); i++) {
+			String s1 = s.charAt(i) + "";
+
+			if (s1.equalsIgnoreCase("a") || s1.equalsIgnoreCase("e")
+					|| s1.equalsIgnoreCase("i") || s1.equalsIgnoreCase("o")
+					|| s1.equalsIgnoreCase("u")) {
+				count++;
+			}
+		}
+		return count;
+
+	}
+
+	public static void main(String[] args) {
+		Q1 obj = new Q1();
+		System.out.println(obj.vowels("nEwyork"));
+
+	}
+
+}
+
+2.Find the sum of maximum and minimum number from a given input array
+	Input:{19,17,12}
+	Output:31
+ans:
+public class Q2 {
+	public int summax(int[] v) {
+		Arrays.sort(v);
+		int sum = v[0] + v[v.length - 1];
+
+		/*
+		 * int max = v[0]; int min = v[0]; int max1 = 0; int min1 = 0; int sum;
+		 * for (int i = 0; i < v.length; i++) { if (max < v[i]) { max = v[i];
+		 * 
+		 * } } System.out.println(max1); for (int i = 0; i < v.length; i++) { if
+		 * (min > v[i]) { min = v[i]; }
+		 * 
+		 * } sum = min + max;
+		 */
+		return sum;
+
+	}
+
+	public static void main(String[] args) {
+		Q2 obj = new Q2();
+		int[] v = { 12, 13, 13, 40 };
+
+		System.out.println(obj.summax(v));
+
+	}
+
+}
+
+
+4.Find the sum of the numbers in the given input string array
+	Input{Ã¢â‚¬Å“2AAÃ¢â‚¬ ,Ã¢â‚¬ 12Ã¢â‚¬ ,Ã¢â‚¬ ABCÃ¢â‚¬ ,Ã¢â‚¬ c1aÃ¢â‚¬ )
+	Output:6 (2+1+2+1)
+	Note in the above array 12 must not considered as such it must be considered as 1,2
+ans:
+public class Q4 {
+	public int addno(String[] l) {
+		int sum = 0;
+		int x = l.length;
+		for (int i = 0; i < x; i++) {
+			String s = l[i];
+			for (int j = 0; j < s.length(); j++) {
+				if (Character.isDigit(s.charAt(j))) {
+					sum = sum + Character.getNumericValue(s.charAt(j));
+				}
+			}
+
+		}
+		return sum;
+
+	}
+
+	public static void main(String[] args) {
+		Q4 obj = new Q4();
+		String[] n = { "ab12", "acv14", "b5" };
+		System.out.println(obj.addno(n));
+
+	}
+
+}
+
+5.Create a program to get the hashmap from the given input string array where the key for the hashmap 
+  is first three letters of array element in uppercase and the value of hashmap is the element itself
+	Input:{Ã¢â‚¬Å“GoaÃ¢â‚¬ ,Ã¢â‚¬ keralaÃ¢â‚¬ ,Ã¢â‚¬ gujaratÃ¢â‚¬ }			[string array]
+	Output:{{GOA,goa},{KER,kerala},{GUJ,Gujarat}}	[hashmap]
+ans:
+
+public class Q5 {
+	public String convert(String[] s) {
+		StringBuffer sb = new StringBuffer();
+		for (int i = 0; i < s.length; i++) {
+			String s1 = s[i];
+			sb.append(s1);
+			sb.append(",");
+
+		}
+		int y = sb.length();
+		String l1 = sb.deleteCharAt(y - 1).toString();
+
+		return l1;
+
+	}
+
+	public static void main(String[] args) {
+		Q5 obj = new Q5();
+		String[] v = { "nandhini", "rushi", "lavanya" };
+		System.out.println(obj.convert(v));
+
+	}
+
+}
+
+7.Email Validation
+
+String input1="test@gmail.com"
+	1)@ & : should be present;
+	2)@ & . should not be repeated;
+	3)there should be four charcters between @ and .;
+	4)there shouls be atleast 3 characters before @ ;
+	5)the end of mail id shoulsd be .com;
+ans:
+public class Q7 {
+	public boolean validation(String s1) {
+		boolean v = false;
+		int flag = 0;
+		int c1 = 0;
+		int c2 = 0;
+		String s = s1.substring(s1.length() - 4, s1.length());
+		System.out.println(s);
+		for (int i = 0; i < s1.length(); i++) {
+			if (s1.charAt(i) == '@') {
+				c1++;
+				System.out.println(c1);
+			}
+			if (s1.charAt(i) == '.') {
+				c2++;
+				System.out.println(c2);
+
+			}
+		}
+		if (c1 == 1 && c2 == 1) {
+			int n1 = s1.indexOf('@');
+			System.out.println(n1);
+			int n2 = s1.indexOf('.');
+			System.out.println(n2);
+			if (s.equals(".com")) {
+				if (n1 > 2 && Math.abs(n1 - n2 + 1) == 4) {
+					flag = 1;
+
+				}
+
+			}
+
+		}
+		if (flag == 1) {
+			v = true;
+
+		} else {
+			v = false;
+		}
+
+		return v;
+
+	}
+
+	public static void main(String[] args) {
+		Q7 obj = new Q7();
+		System.out.println(obj.validation("t@gmai.com"));
+	}
+
+}
+
+8. Square root calculation
+ 	((x1+x2)*(x1+x2))+((y1+y2)*(y1+y2))
+	 o/p should be rounded of to int;
+ans:
+public class Sqrt {
+	public int calculation(int x1, int x2, int x3, int x4) {
+		double l = Math.pow(x1 + x2, 2) + Math.pow(x3 + x4, 2);
+		int i = (int) Math.abs(Math.sqrt(l));
+		// System.out.println(i);
+
+		return i;
+
+	}
+
+	public static void main(String[] args) {
+		Sqrt obj = new Sqrt();
+		System.out.println(obj.calculation(2, 3, 4, 5));
+
+	}
+
+}
+
+9.Calculate wether given year as loeap or not;
+
+ans:
+
+public class Q9 {
+	public boolean leap(String d) throws ParseException {
+		boolean v = true;
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy");
+		Date d1 = new Date();
+		d1 = sdf.parse(d);
+		Calendar c1 = Calendar.getInstance();
+		c1.setTime(d1);
+		int x = c1.get(Calendar.YEAR);
+		Date d2 = c1.getTime();
+
+		GregorianCalendar ca = new GregorianCalendar();
+		if (ca.isLeapYear(x)) {
+			v = true;
+		} else {
+			v = false;
+		}
+
+		return v;
+
+	}
+
+	public static void main(String[] args) throws ParseException {
+		Q9 obj = new Q9();
+		System.out.println(obj.leap("27/03/1700"));
+
+	}
+
+}
+
+10.Count of words in a given string
+ans:
+public class Q10 {
+	private int c = 0;
+
+	public int count(String n) {
+		StringTokenizer s = new StringTokenizer(n, " ");
+		while (s.hasMoreTokens()) {
+			String s1 = s.nextToken();
+			// System.out.println(s1);
+
+			c++;
+
+		}
+
+		return c;
+
+	}
+
+	public static void main(String[] args) {
+		Q10 obj = new Q10();
+		System.out.println(obj.count("nandhini is beautiful"));
+
+	}
+
+}
+
+12. (AUB)-(A intersection B)
+	o/p in string array;
+ans:
+public class Q12 {
+	String[] output;
+
+	public String[] intersection(int[] s1, int[] s2) {
+		List<Integer> l1 = new ArrayList<Integer>();
+		List<Integer> l2 = new ArrayList<Integer>();
+		List<Integer> l3 = new ArrayList<Integer>();
+		List<Integer> l4 = new ArrayList<Integer>();
+		// Set<Integer> t = new TreeSet<Integer>();
+		// Set<Integer> t1 = new TreeSet<Integer>();
+
+		for (int i = 0; i < s1.length; i++) {
+			// t.add(s1[i]);
+			l1.add(s1[i]);
+
+		}
+		for (int i = 0; i < s2.length; i++) {
+			// t.add(s2[i]);
+			l2.add(s2[i]);
+		}
+		// l1.retainAll(l2);
+
+		// System.out.println(t1);
+		// System.out.println(t);
+		// l3.addAll(l1);
+		// l3.removeAll(l2);
+		// System.out.println(l3);
+		l3.addAll(l2);
+		l4.addAll(l1);
+		l4.retainAll(l2);
+		// System.out.println(l4);
+		l3.removeAll(l4);
+		String[] a1 = new String[l3.size()];
+		output = new String[a1.length];
+		// System.out.println(l3);
+		for (int i = 0; i < a1.length; i++) {
+			a1[i] = l3.get(i) + "";
+			output[i] = a1[i];
+			System.out.println(output[i]);
+		}
+
+		return null;
+
+	}
+
+	public static void main(String[] args) {
+		Q12 obj = new Q12();
+		int[] i1 = { 2, 4, 5, 8 };
+		int[] i2 = { 1, 4, 3, 6, 5 };
+
+		obj.intersection(i1, i2);
+
+	}
+
+}
+
+14: input 1[]={"abc","da","ram"};
+	input 2=3;
+	o/p= string ="c$m";
+ans:
+public class Q14 {
+	public String thirdadd(String[] s, int input2) {
+		StringBuffer sb = new StringBuffer();
+		for (int i = 0; i < s.length; i++) {
+			String s2 = s[i];
+			int y = s2.length();
+			if (y >= input2) {
+				sb.append(s2.charAt(y - 1));
+				// System.out.println(sb);
+			} else {
+				sb.append("$");
+			}
+
+		}
+		String l = sb.toString();
+		System.out.println(l);
+
+		return null;
+
+	}
+
+	public static void main(String[] args) {
+		Q14 obj = new Q14();
+		String[] s1 = { "abc", "cd", "ram" };
+		obj.thirdadd(s1, 3);
+	}
+}
+
+16. INPUT1= helloworld
+    INPUT2= 2
+    O/P= helwrd;
+ans:
+public class Q16 {
+	public String removealternate(String s1) {
+		StringBuffer sb = new StringBuffer();
+		sb.append(s1.charAt(0));
+		for (int i = 1; i < s1.length(); i++) {
+			if (i % 2 != 0) {
+				sb.append(s1.charAt(i));
+			}
+		}
+		String l = sb.toString();
+
+		return l;
+
+	}
+
+	public static void main(String[] args) {
+		Q16 obj = new Q16();
+		System.out.println(obj.removealternate("helloworld"));
+
+	}
+
+}
+
+18.String[] input={"100","111","10100","10","1111"}
+	output=2;count strings having prefix"10" but "10" not included in count
+	String[] input={"01","01010","1000","10","011"}
+	output=3; count the strings having prefix"10","01" but "10","01" not included
+ans:
+public class Q18 {
+	public int countstring(String[] s) {
+		int c = 0;
+		for (int i = 0; i < s.length; i++) {
+			String s2 = s[i];
+			int x = s2.length();
+			for (int j = 0; j < s.length; j++) {
+				String s3 = s[j];
+
+				if (s3.length() > s2.length()) {
+					String k = s3.substring(0, x);
+					// System.out.println(k);
+					if (s2.equalsIgnoreCase(k)) {
+						c++;
+
+					}
+
+				}
+
+			}
+		}
+		return c;
+
+	}
+
+	public static void main(String[] args) {
+		Q18 obj = new Q18();
+		String[] s1 = { "10", "111", "10100", "10", "1111" };
+		System.out.println(obj.countstring(s1));
+
+	}
+
+}
+
+19.ArrayList input={"a","d","c","b"};
+  String[] output={"a","b","c","d"};
+ans:
+public class Q19 {
+	private int j = 0;
+
+	public String[] listinput(List<String> s) {
+		String[] output;
+		String[] s3 = new String[s.size()];
+		output = new String[s.size()];
+		for (int i = 0; i < s.size(); i++) {
+			String s2 = s.get(i);
+			// for (int j = 0; j < s3.length; j++) {
+			s3[i] = s2;
+			output[i] = s3[i];
+
+			// system.out.println(s3[i]);
+		}
+
+		return s3;
+
+	}
+
+	public static void main(String[] args) {
+		Q19 obj = new Q19();
+		List<String> s1 = new ArrayList<String>();
+		s1.add("a");
+		s1.add("b");
+		s1.add("c");
+		s1.add("d");
+
+		String[] out = obj.listinput(s1);
+		for (int i = 0; i < out.length; i++) {
+			System.out.println(out[i]);
+		}
+
+	}
+
+}
+
+20.input1=1,inoput2=2,onput3=3 --- output=6;
+  input1=1,inoput2=13,onput3=3 --- output=1;
+  input1=13,inoput2=2,onput3=8 --- output=8;
+	if value equal to 13,escape the 13 value as well as next value to 13.
+	sum the remaining values
+ans:
+public class Q20 {
+
+	int output;
+
+	public int nextvalue(int n1, int n2, int n3) {
+		int[] a = new int[3];
+		int sum = 0;
+		a[0] = n1;
+		a[1] = n2;
+		a[2] = n3;
+		for (int i = 0; i < 3; i++) {
+			if (a[i] != 13) {
+				sum = sum + a[i];
+			} else {
+				if (i == 2) {
+					break;
+				}
+				if (a[i + 1] == 13) {
+					break;
+				}
+				a[i + 1] = 0;
+			}
+		}
+
+		return sum;
+
+	}
+
+	public static void main(String[] args) {
+		Q20 obj = new Q20();
+		System.out.println(obj.nextvalue(13, 2, 5));
+	}
+
+}
+
+21.input="hello"
+  output="hlo"; Alternative positions...
+ans:
+public class Q21 {
+	public String alternative(String s) {
+		String s1 = "";
+		StringBuffer sb = new StringBuffer();
+		for (int i = 0; i < s.length(); i++) {
+			if (i % 2 == 0) {
+				sb.append(s.charAt(i));
+			}
+		}
+		s1 = sb.toString();
+
+		return s1;
+
+	}
+
+	public static void main(String[] args) {
+		Q21 obj = new Q21();
+		System.out.println(obj.alternative("hello"));
+
+	}
+
+}
+
+22.input=9;
+	output=1+3+5+7+9=25  sum of odd number within the input range:
+ans:
+public class Q22 {
+	public int odd(int n) {
+		int sum = 0;
+		for (int i = 1; i <= n; i++) {
+			if (i % 2 != 0) {
+				System.out.println(i);
+				sum = sum + i;
+			}
+
+		}
+		return sum;
+
+	}
+
+	public static void main(String[] args) {
+		Q22 obj = new Q22();
+		System.out.println(obj.odd(9));
+	}
+
+}
+23.       Input1=Ã¢â‚¬ I love my countryÃ¢â‚¬ ;  output---ÃƒÂ   Ã¢â‚¬Å“I Love My CountryÃ¢â‚¬ .
+
+ans:
+public class Q23 {
+
+	public String upper(String s) {
+		String j = "";
+		String n = "";
+		StringBuffer sb = new StringBuffer();
+		StringTokenizer st = new StringTokenizer(s, " ");
+		while (st.hasMoreTokens()) {
+			String k = st.nextToken();
+			System.out.println(k);
+			String l = k.charAt(0) + "";
+
+			// System.out.println(l);
+			sb.append(l.toUpperCase());
+			int x = k.length();
+
+			sb.append(k.substring(1, x));
+			sb.append(" ");
+
+		}
+		System.out.println(sb);
+
+		return null;
+
+	}
+
+	public static void main(String[] args) {
+		Q23 obj = new Q23();
+		obj.upper("i love my country");
+
+	}
+
+}
+
+24.       Input1=Ã¢â‚¬ Hello WorldÃ¢â‚¬ ;  output-------ÃƒÂ   Ã¢â‚¬Å“dello WorlHÃ¢â‚¬ .
+ans:
+public class Q24 {
+	public String changing(String s) {
+		StringBuffer sb = new StringBuffer();
+		sb.append(s.charAt(s.length() - 1));
+		// System.out.println(sb);
+		for (int i = 1; i < s.length() - 1; i++) {
+			sb.append(s.charAt(i));
+		}
+		sb.append(s.charAt(0));
+		String s1 = sb.toString();
+		System.out.println(s1);
+
+		return s1;
+
+	}
+
+	public static void main(String[] args) {
+		Q24 obj = new Q24();
+		obj.changing("hello world");
+
+	}
+
+}
+
+25.       Collect noÃ¢â‚¬â„¢s  frm  list1 which is not present in list2 & Collect noÃ¢â‚¬â„¢s  frm  list2 
+	which is not present in list1 and store it in ---> int[] output1.
+                ex: input1={1,2,3,4}; input2={1,2,3,5};
+                    output1={4,5};
+ans:
+public class Q25 {
+	public int[] union(int[] n1, int[] n2) {
+
+		List<Integer> s = new ArrayList<Integer>();
+		List<Integer> s1 = new ArrayList<Integer>();
+		List<Integer> s3 = new ArrayList<Integer>();
+		List<Integer> s4 = new ArrayList<Integer>();
+		for (int i = 0; i < n1.length; i++) {
+			s.add(n1[i]);
+
+		}
+		// System.out.println(s);
+		for (int i = 0; i < n2.length; i++) {
+			s1.add(n2[i]);
+		}
+
+		s3.addAll(s);
+		// System.out.println(s3);
+		s.removeAll(s1);
+		// System.out.println(s);
+		s1.removeAll(s3);
+		// System.out.println(s1);
+		s.addAll(s1);
+		System.out.println(s);
+
+		return n2;
+
+	}
+
+	public static void main(String[] args) {
+		Q25 obj = new Q25();
+		int[] i = { 1, 2, 3, 4 };
+		int[] i1 = { 1, 2, 3, 5 };
+
+		obj.union(i, i1);
+	}
+
+}
+
+38. input-- String input1="Lily"
+           int input2=2
+ans:
+public class Q38 {
+	public String addtwice(String s, int input2) {
+		StringBuffer sb = new StringBuffer();
+		for (int i = 0; i < input2; i++) {
+			sb.append(s);
+
+		}
+		String j = sb.toString();
+		return j;
+
+	}
+
+	public static void main(String[] args) {
+		Q38 obj = new Q38();
+		System.out.println(obj.addtwice("lily", 2));
+
+	}
+
+}
+
+40. input1-List1-{apple,orange,grapes}
+    input2-List2-{melon,apple,mango}
+ 
+   output={mango,orange}
+	operation-- In 1st list remove strings starting with 'a' or 'g'
+		    In 2nd list remove strings ending with 'm' or 'e'
+                     Ignore case
+                    return in string array
+ans:
+public class Q40 {
+	public String[] notrepeat(List<String> s1, List<String> s2) {
+		String[] j = new String[s1.size() + s2.size()];
+		int n = 0;
+		for (int i = 0; i < s1.size(); i++) {
+			String k = s1.get(i);
+			if (!((k.charAt(0) + "").equalsIgnoreCase("a") || (k.charAt(0) + "")
+					.equalsIgnoreCase("g"))) {
+				j[n] = k;
+				n++;
+
+			}
+		}
+		for (int i = 0; i < s2.size(); i++) {
+
+			String l = s2.get(i);
+			int y = l.length();
+			// System.out.println(l.charAt(y - 1));
+			if (!((l.charAt(y - 1) + "").equalsIgnoreCase("n") || (l
+					.charAt(y - 1) + "").equalsIgnoreCase("e"))) {
+				j[n] = l;
+				n++;
+
+			}
+		}
+		for (int i = 0; i < n; i++) {
+			System.out.println(j[i]);
+
+		}
+		return null;
+
+	}
+
+	public static void main(String[] args) {
+		Q40 obj = new Q40();
+		List<String> l1 = new ArrayList<String>();
+		List<String> l2 = new ArrayList<String>();
+		l1.add("apple");
+		l1.add("orange");
+		l1.add("grapes");
+		l2.add("melon");
+		l2.add("apple");
+		l2.add("mango");
+
+		obj.notrepeat(l1, l2);
+
+	}
+
+}
+
+41.input1- Hello*world
+   output-- boolean(true or false)
+   
+   operation-- if the character before and after * are same return true else false
+               if there in no star in the string return false
+               Ignore case
+ans:
+public boolean star(String s) {
+		boolean v = false;
+		String k = "";
+		String l = "";
+		if (!s.contains("*") || s.charAt(s.length() - 1) == '*') {
+			v = false;
+		} else {
+			StringTokenizer st = new StringTokenizer(s, "*");
+			while (st.hasMoreTokens()) {
+				k = st.nextToken();
+				l = st.nextToken();
+			}
+			// System.out.println(k);
+			// System.out.println(l);
+			int x = k.length();
+			int j = l.length();
+			if ((k.charAt(x - 1) + "").equalsIgnoreCase((l.charAt(0)) + "")) {
+				v = true;
+			} else {
+				v = false;
+			}
+		}
+		return v;
+
+	}
+
+	public static void main(String[] args) {
+		Q41 obj = new Q41();
+		System.out.println(obj.star("hellooorld"));
+
+	}
+
+}
+42. input--String input1="xaXafxsd"
+          String output1="aXafsdxx"
+
+    operation-- remove the character "x"(only lower case) from string and place at the end
+ans:
+public class Q42 {
+	public String xappend(String s2) {
+		int c = 0;
+		StringBuffer sb = new StringBuffer();
+		for (int i = 0; i < s2.length(); i++) {
+			if (s2.charAt(i) != 'x') {
+				sb.append(s2.charAt(i));
+
+			} else {
+				c++;
+			}
+
+		}
+		for (int i = 0; i < c; i++) {
+			sb.append("x");
+		}
+		System.out.println(sb.toString());
+
+		return s2;
+
+	}
+
+	public static void main(String[] args) {
+		Q42 obj = new Q42();
+		obj.xappend("XxxdaghxX");
+
+	}
+}
+44.  String input1="Today is monday";
+	int     output1=3  
+
+       ---count no of tokens in the string
+ans:
+public class Q44 {
+	public int count(String s) {
+		int c = 0;
+		StringTokenizer st = new StringTokenizer(s, " ");
+		while (st.hasMoreTokens()) {
+			String j = st.nextToken();
+			c++;
+
+		}
+		System.out.println(c);
+
+		return 0;
+
+	}
+
+	public static void main(String[] args) {
+		Q44 obj = new Q44();
+		obj.count("today is monday");
+
+	}
+
+}
+45. Validate the age
+	  String  input1="26"
+          boolean output1
+   --1st character in input1 should be digit
+   --input1 sholud be greater than zero
+   --age should be between 21 and 45 (inclusive 21 and 45)
+ans:
+public class Q45 {
+	public boolean validate(String s) {
+		boolean v = false;
+		if (Character.isDigit(s.charAt(0)) && Character.isDigit(s.charAt(1))) {
+			int n = Integer.parseInt(s);
+			if (n >= 21 && n < 45) {
+				v = true;
+			}
+		}
+
+		return v;
+
+	}
+
+	public static void main(String[] args) {
+		Q45 obj = new Q45();
+		System.out.println(obj.validate("20"));
+
+	}
+
+}
+46. HashMap<String,Integer> h1={Ã¢â‚¬Å“abcÃ¢â‚¬ :50,Ã¢â‚¬ efgÃ¢â‚¬ :70}; 
+	if the mark is less than 60 then put the output is the 
+	HashMap<String,String> h2={Ã¢â‚¬Å“abcÃ¢â‚¬ :Ã¢â‚¬ failÃ¢â‚¬ ,Ã¢â‚¬ efgÃ¢â‚¬ :Ã¢â‚¬ passÃ¢â‚¬ }
+              
+ans:
+public class Q46 {
+	public Map<String, String> marks(Map<String, Integer> m) {
+		Map<String, String> h1 = new HashMap<String, String>();
+		for (Entry<String, Integer> s : m.entrySet()) {
+			String k = s.getKey();
+			int n = s.getValue();
+			if (n > 60) {
+				h1.put(k, "pass");
+
+			} else {
+				h1.put(k, "fail");
+			}
+
+		}
+
+		return h1;
+
+	}
+
+	public static void main(String[] args) {
+		Q46 obj = new Q46();
+		Map<String, Integer> h = new HashMap<String, Integer>();
+		h.put("abc", 50);
+		h.put("nandy", 80);
+		h.put("abi", 60);
+		h.put("abnaya", 70);
+		h.put("ashwin", 80);
+
+		System.out.println(obj.marks(h));
+
+	}
+
+}
+
+48. check if the no of characters in a string greater than 3 and if there are digits output=false;
+    check  if length of word is 3 and there are no digits then = true
+ans:
+public class Q48 {
+	public boolean count(String s) {
+		boolean v = true;
+		int y = s.length();
+
+		for (int i = 0; i < s.length(); i++) {
+
+			if ((y == 3) && (!(Character.isDigit(s.charAt(i))))) {
+				v = true;
+
+			} else {
+				v = false;
+			}
+
+		}
+
+		return v;
+
+	}
+
+	public static void main(String[] args) {
+		Q48 obj = new Q48();
+		System.out.println(obj.count("nas34"));
+
+	}
+
+}
+49. String i/p=2012;
+    sTRING I/P2=5
+    IF EXPERIENCE IS GREATER THAN INPUT 2 THEN TRUE;
+ans:
+public class Q49 {
+	public boolean experience(String s, int n) throws ParseException {
+		boolean v = false;
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy");
+		Date d = sdf.parse(s);
+		Calendar c1 = Calendar.getInstance();
+		Calendar c2 = Calendar.getInstance();
+		c1.setTime(d);
+		long l = c2.getTimeInMillis() - c1.getTimeInMillis();
+		int y = (int) (l / (1000 * 60 * 60 * 24 * 365.24));
+		// System.out.println(y);
+		if (y > n) {
+			v = true;
+		}
+
+		return v;
+
+	}
+
+	public static void main(String[] args) throws ParseException {
+		Q49 obj = new Q49();
+		System.out.println(obj.experience("2012", 5));
+
+	}
+}
+50 IF GIVEN ARRAY CONTAINS 9 THEN O/P IS TRUE;
+ans:
+public class Q50 {
+	public boolean count(Integer[] i1) {
+		boolean v = false;
+		if (i1.length <= 4) {
+			for (int i = 0; i < i1.length; i++) {
+				if (i1[i] == 9) {
+					v = true;
+				}
+			}
+		} else {
+			for (int i = 0; i < 4; i++) {
+				if (i1[i] == 9) {
+					v = true;
+				}
+			}
+		}
+		return v;
+
+	}
+
+	public static void main(String[] args) {
+		Q50 obj = new Q50();
+		Integer[] i = { 1, 9 };
+		System.out.println(obj.count(i));
+
+	}
+
+}
+51: string1[]={a,b,c}
+    string2[]={b,c,d}
+o/p=2
+if repeted elements are there count only once.
+ans:
+public class Q51 {
+	int c = 0;
+
+	public int count(String[] l1, String[] l2) {
+		for (int i = 0; i < l1.length; i++) {
+			for (int j = 0; j < l2.length; j++) {
+				// String j=l1[i];
+				if (l1[i].contains(l2[j])) {
+					c++;
+				}
+			}
+
+		}
+
+		return c;
+
+	}
+
+	public static void main(String[] args) {
+		Q51 obj = new Q51();
+		String[] s1 = { "a", "b", "e", "f" };
+		String[] s2 = { "c", "e", "f" };
+		System.out.println(obj.count(s1, s2));
+
+	}
+
+}
+54. count the number of occurences of substring in a string
+ans:
+public class Q54 {
+	public int count(String s1, String s2) {
+
+		int y = s2.length();
+		// System.out.println(y);
+		int c = 0;
+		for (int i = 0; i < s1.length() - y + 1; i++) {
+			String s = s1.substring(i, i + y);
+			if (s.matches(s2)) {
+				c++;
+			}
+		}
+
+		return c;
+
+	}
+
+	public static void main(String[] args) {
+		Q54 obj = new Q54();
+		System.out.println(obj.count("catratcatcatcat", "cat"));
+	}
+
+}
+55. prove wether an number is ISBN number or not
+    input="0201103311"
+        ISBN number:  sum=0*10+2*9+0*8+1*7+1*6+0*5+3*4+3*3+1*2+1*1 
+                                       sum%11==0 then it is I
+ans:
+public class Q55 {
+	public boolean isbn(String s) {
+		boolean v = false;
+		int sum = 0;
+		int y = s.length();
+		// System.out.println(y);
+
+		for (int i = 10; i > 0; i--) {
+			sum = sum + i * Character.getNumericValue(s.charAt(s.length() - i));
+
+		}
+		if (sum % 11 == 0) {
+			v = true;
+		}
+		return v;
+
+	}
+
+	public static void main(String[] args) {
+		Q55 obj = new Q55();
+		System.out.println(obj.isbn("07492801hjk11"));
+
+	}
+}
+56. experience and year of passing are given in string format. first calculate the difference of 
+current year and year of pass. if it is greater the=an or equal to experience return true.
+ans:
+public class Q56 {
+	public boolean experience(String s, int n) throws ParseException {
+		boolean v = true;
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		Date d = new Date();
+		d = sdf.parse(s);
+		Date d1 = new Date();
+		Calendar c1 = Calendar.getInstance();
+		Calendar c2 = Calendar.getInstance();
+		c1.setTime(d);
+		c2.setTime(d1);
+
+		c2.get(Calendar.YEAR);
+		// System.out.println(c2);
+		c1.get(Calendar.YEAR);
+		long l = (c2.getTimeInMillis() - c1.getTimeInMillis());
+		// System.out.println(l);
+		int x = (int) (l / (1000 * 60 * 60 * 24 * 365.24));
+		System.out.println(x);
+		if (x >= n) {
+			v = true;
+
+		} else {
+			v = false;
+		}
+
+		return v;
+
+	}
+
+	public static void main(String[] args) throws ParseException {
+		Q56 obj = new Q56();
+		System.out.println(obj.experience("25/08/2009", 5));
+
+	}
+
+}
+58.
+input1=23 (int)
+input2=2  (int)
+input3='*' (char)
+output=46   (int)
+ans:
+public class Q58 {
+	public int arithmetic(int n1, int n2, char c) {
+		int output = 0;
+		switch (c) {
+		case '*':
+			output = n1 * n2;
+
+			break;
+		case '/':
+			output = Math.round(n1 / n2);
+
+			break;
+		case '+':
+			output = n1 + n2;
+
+			break;
+		case '-':
+			output = n1 - n2;
+
+			break;
+		}
+
+		return output;
+
+	}
+
+	public static void main(String[] args) {
+		Q58 obj = new Q58();
+		System.out.println(obj.arithmetic(28, 5, '/'));
+
+	}
+
+}
+
+59.
+input1="hello world is good world" (string)
+input2="world" (string)
+output=2
+
+Count the number of occurance of the input2. The check must be case sensitive.
+ans:
+public class Q59 {
+	public int count(String s1, String s2) {
+		int c = 0;
+		StringTokenizer st = new StringTokenizer(s1, " ");
+		while (st.hasMoreTokens()) {
+			String k = st.nextToken();
+			if (k.matches(s2)) {
+				c++;
+			}
+
+		}
+		System.out.println(c);
+
+		return 0;
+
+	}
+
+	public static void main(String[] args) {
+		Q59 obj = new Q59();
+		obj.count("hello world is good world world", "world");
+
+	}
+}
+
+60.
+input={"a","c","b","d","e"} (Arraylist)
+
+ouput={"a","b","c","d","e"} (string array)
+Get the input and convert it to string array. The output array should be sorted.
+ans:
+public class Q60 {
+	public String[] convert(List<String> s) {
+		int k = 0;
+		String[] j = new String[s.size()];
+		Collections.sort(s);
+		// System.out.println(s);
+		for (int i = 0; i < s.size(); i++) {
+			j[k] = s.get(i);
+			k++;
+		}
+		for (int i = 0; i < k; i++) {
+			System.out.println(j[i]);
+		}
+
+		return null;
+
+	}
+
+	public static void main(String[] args) {
+		Q60 obj = new Q60();
+		List<String> l1 = new ArrayList<String>();
+		l1.add("b");
+		l1.add("a");
+		l1.add("c");
+		l1.add("f");
+		l1.add("e");
+
+		obj.convert(l1);
+
+	}
+
+}
+61.
+input1="05-02-1988" (string)
+input2="23-04-2013" (string)
+ans:
+public class Q61 {
+	public boolean oldest(String s1, String s2) throws ParseException {
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		SimpleDateFormat sdf1 = new SimpleDateFormat("MM/dd/yyyy");
+		Date d = new Date();
+		Date d1 = new Date();
+		d = sdf.parse(s1);
+		d1 = sdf.parse(s2);
+		if ((d.after(d1))) {
+			System.out.println(sdf1.format(d1));
+		} else {
+			System.out.println(sdf1.format(d));
+		}
+
+		return false;
+	}
+
+	public static void main(String[] args) throws ParseException {
+		Q61 obj = new Q61();
+		obj.oldest("28-5-2008", "19/2/2013");
+
+	}
+
+}
+63.
+Check whether the first char is digit or not.
+input=java (string)
+output=False (boolean)
+ans:
+public class Q63 {
+	public boolean digit(String s) {
+		boolean v = true;
+		if (Character.isDigit(s.charAt(0))) {
+			v = true;
+		} else {
+			v = false;
+		}
+
+		return v;
+
+	}
+
+	public static void main(String[] args) {
+		Q63 obj = new Q63();
+		System.out.println(obj.digit("java"));
+
+	}
+
+}
+65.
+input1={1,2,3,4} (int array)
+input2={1,5,2,6} (int array)
+output=2 (int)
+Count the number of common elements in both the array.
+ans:
+public class Q65 {
+	public int count(int[] s1, int[] s2) {
+		int c = 0;
+		for (int i = 0; i < s1.length; i++) {
+			for (int j = 0; j < s2.length; j++) {
+				if (s1[i] == s2[j]) {
+					c++;
+
+				}
+
+			}
+		}
+
+		return c;
+
+	}
+
+	public static void main(String[] args) {
+		Q65 obj = new Q65();
+		int[] i1 = { 1, 3, 4, 5, 6 };
+		int[] i2 = { 1, 3, 5, 6 };
+		System.out.println(obj.count(i1, i2));
+	}
+}
+66.
+input=("ram":80.5,"prakash":70.4)  (hashmap<string,float> )
+output=("ram":PASS,"prakask":PASS)  (hashmap<string,string>)
+if float value is above 60 then PASS else FAIL.
+
+ans:
+public class Q66 {
+	public Map<String, String> pass(Map<String, Float> k) {
+		Map<String, String> m1 = new HashMap<String, String>();
+		for (Entry<String, Float> k1 : k.entrySet()) {
+			String j = k1.getKey();
+			double l = k1.getValue();
+			int y = (int) Math.round(l);
+			if (y > 60) {
+				m1.put(j, "pass");
+
+			} else {
+				m1.put(j, "fail");
+			}
+			// System.out.println(y);
+		}
+
+		return m1;
+
+	}
+
+	public static void main(String[] args) {
+		Q66 obj = new Q66();
+		Map<String, Float> m = new HashMap<String, Float>();
+		m.put("ram", 70.5f);
+		m.put("krish", 70.5f);
+		m.put("nandy", 60.5f);
+		m.put("sree", 59.5f);
+		m.put("lekha", 80.5f);
+		System.out.println(obj.pass(m));
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

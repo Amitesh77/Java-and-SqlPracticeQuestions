@@ -1,0 +1,1143 @@
+2) Given a methodtaking a person name in the formate-"FirstName
+lastName".write code to return the person name in the following
+formate-"LastName","InitialOfName".
+Example:
+Input:Jessica Miller
+output:Miller,J
+import java.util.StringTokenizer;
+public class B {
+/**
+* @param args
+*/
+public static void main(String[] args) {
+String s1="vishal jadiya";
+getvalues(s1);
+}
+public static void getvalues(String s1) {
+StringBuffer sb=new StringBuffer();
+StringTokenizer st=new StringTokenizer(s1,"
+");
+String s2=st.nextToken();
+String s3=st.nextToken();
+sb.append(s3).append(",").append(s2.substri
+ng(0,1));
+System.out.println(sb);
+}
+}
+...............................................................................
+
+5) Given a method taking string as input.Write code to check if
+given string contains exactly five vowels and the vowels
+should be alphabetical order.return 1 if condition is satisfied else
+return 2.assume there is no repetition of any vowel in any given
+string.
+Example:
+Input=acebisouzz
+output=1
+package com.Packas;
+import java.util.Iterator;
+import java.util.LinkedHashSet;
+public class Dd {
+/**
+* @param args
+*/
+public static void main(String[] args) {
+String s1="ecabisouzz";
+getvalues(s1);
+}
+public static void getvalues(String s1) {
+String s2="aeiou";
+StringBuffer sb=new StringBuffer();
+for(int i=0;i<s1.length();i++)
+{
+for(int j=0;j<s2.length();j++)
+{
+if(s1.charAt(i)==s2.charAt(j))
+{
+sb.append(s1.charAt(i));
+}
+}
+}
+if(sb.toString().equals(s2))
+{
+System.out.println("true");
+}
+else
+System.out.println("false");
+}
+}
+................................................................................................................
+
+12) Given a method with two strings as input.if strings are of some length simply append them together and return the final.if given strings are of different lenght,remove starting characters from the ponger string so that both string are of length then append them together and return the final string.
+Example1:
+input1=Hello
+input2=hi
+output=lohi
+Example2:
+input1=Hello;
+input2=delhi
+output2=HelloDelhi
+public class L {
+/**
+* @param args
+*/
+public static void main(String[] args) {
+String s1="he";
+String s2="hi";
+getvalues(s1,s2);
+}
+public static void getvalues(String s1, String
+s2) {
+StringBuffer sb=new StringBuffer();
+int l1=s1.length();
+int l2=s2.length();
+if(l1==l2)
+{
+sb.append(s1).append(s2);
+}
+if(l1>l2)
+{
+sb.append(s1.substring(s1.length()-s2.l
+ength(),s1.length())).append(s2);
+}
+System.out.println(sb);
+}
+}
+.......................................................
+
+23) Write a method that takes a string and returns the number of unique characters in the string. If the given string does not contain any unique characters return _1.
+Example
+Input : "HelloWorld"
+Output: 5
+Input: "coco"
+Output: -1
+package com.Packas;
+public class B {
+/**
+* @param args
+*/
+public static void main(String[] args) {
+String s1="HelloWorld";
+getvalues(s1);
+}
+public static void getvalues(String s1) {
+String s2=s1.toLowerCase();
+StringBuffer sb=new StringBuffer(s2);
+int l=sb.length();
+int count=0;
+for(int i=0;i<l;i++)
+{ count=0;
+for(int j=i+1;j<l;j++)
+{
+if(sb.charAt(i)==sb.charAt(j))
+{
+sb.deleteCharAt(j);
+count++;
+j--;
+l--;
+j=i;
+}
+}
+if(count>0)
+{
+sb.deleteCharAt(i);
+i--;
+l--;
+}
+}
+if(sb.length()==0)
+{
+System.out.println(-1);
+}
+else
+System.out.println(sb.length());
+}
+}
+.....................................................................................
+
+24) Given a method that accepts a string as a parameter and returns the string with each pair of adjacent letters reversed. If the string has an odd numbers of letters, the last letter is unchenged.
+Example:
+The call swapPairs("forger") should return "ofgrte"
+and
+the call swapPairs("NEw York") should return "eN woYkr".
+public static void main(String[] args) {
+String s1="New York";
+getvalues(s1);
+}
+public static void getvalues(String s1)
+{
+StringBuffer sb=new StringBuffer();
+int l=s1.length();
+if(l%2==0)
+{
+for(int i=0;i<s1.length()-1;i=i+2)
+{
+char a=s1.charAt(i);
+char b=s1.charAt(i+1);
+sb.append(b).append(a);
+}
+System.out.println(sb);
+}
+else
+{
+for(int i = 0;i<s1.length()-1;i=i+2)
+{
+char a=s1.charAt(i);
+char b=s1.charAt(i+1);
+sb.append(b).append(a);
+System.out.println(sb);
+}
+sb.append(s1.charAt(l-1));
+System.out.println(sb);
+}
+}
+}
+....................................................................................
+
+25) Given a method with a string and a positive int (say n) as input. Write code to construct a string with first n and last n characters in the given string. Note- the given string length is >= 2n.
+Example:
+Input1=California
+Input2=3
+output=Calnia
+public class B {
+public static void main(String[] args) {
+String s1="California";
+int n=3;
+getvalues(s1,n);
+}
+public static void getvalues(String s1, int n)
+{
+StringBuffer sb=new StringBuffer();
+sb.append(s1.substring(0, n)).append(s1.substring(s1.length()-n,s1.length()));
+System.out.println(sb);
+}
+}
+....................................................................................
+
+46) Given a method with a 10 digit positive number in the format xxx-xxx-xxxx as string
+input. Write code to convert this number to the format xx-xx-xxx-xxx. Return the new
+number as output.
+Example:
+input = 555-666-1234
+output=55-56-661-234
+package com.Packas;
+import java.util.StringTokenizer;
+public class A {
+public static void main(String[] args) {
+String s="555-666-1234";
+System.out.println(display(s));
+}
+public static String display(String s) {
+StringTokenizer t=new StringTokenizer(s,"-");
+String s1=t.nextToken();
+String s2=t.nextToken();
+String s3=t.nextToken();
+StringBuffer sb=new StringBuffer();
+sb.append(s1.substring(0, s1.length()-1)).append('-');
+sb.append(s1.charAt(s1.length()-1)).append(s2.charAt(0)).append('-');
+sb.append(s2.substring(1, s2.length())).append( s3.charAt(0)).append('-');
+sb.append(s3.substring(1, s3.length()));
+return sb.toString();
+}
+}
+................................................................................
+
+48) Given a method with a string input. Write code to replace every appearance of the word
+'is" by "is not". If the word "is" is immediately preceeded or followed by a letter no change should be made to the string.
+Example:
+input = This is just a misconception
+output=This is not just a misconception
+package com.Packas;
+import java.util.StringTokenizer;
+public class A {
+public static void main(String[] args) {
+String s1="this is just a misconception";
+getvalues(s1);
+}
+public static void getvalues(String s1) {
+StringBuffer sb=new StringBuffer();
+StringTokenizer st=new StringTokenizer(s1," ");
+while(st.hasMoreTokens())
+{
+String s2=st.nextToken();
+if(s2.equals("is"))
+{
+String s3=s2.replace("is", "is not");
+sb.append(s3).append(" ");
+}
+else
+sb.append(s2);
+sb.append(" ");
+}
+sb.delete(sb.length()-1, sb.length());
+System.out.println(sb);
+}
+}
+.........................................................................
+
+52) Given method taking a sentence in string variable.Write code tio convert the first letter of each word to capital case and return the final String.
+Note- only the first letter in each word should be in capital case in return string.
+Example-
+INPUT- "Now is the time to act!"
+OUPUT-"Now Is The Time To Act!"
+package com.Packas;
+import java.util.StringTokenizer;
+public class A {
+public static void main(String[] args) {
+String s1="Now is the time to act";
+getvalues(s1);
+}
+public static void getvalues(String s1) {
+StringBuffer sb=new StringBuffer();
+StringTokenizer st=new StringTokenizer(s1," ");
+while(st.hasMoreTokens())
+{
+String s2=st.nextToken();
+sb.append(s2.substring(0,1).toUpperCase
+());
+sb.append(s2.substring(1,s2.length()));
+sb.append(" ");
+}
+sb.delete(sb.length()-1, sb.length());
+System.out.println(sb);
+}
+}
+.............................................................
+
+54) Given a method with two strings as input.Write code to count the common unique letters in the two strings.
+Note:
+-space should not be counted as letter.
+-Consider letters to be case sensitive.ie, 'a' is not equal to 'A'.
+Example:
+input1="a black cow"
+input2 ="battle ship"
+output=3
+package shivam;
+import java.util.Iterator;
+import java.util.LinkedHashSet;
+public class B {
+public static void main(String[] args) {
+String s1="a black cow";
+String s2="battle ship";
+getvalues(s1,s2);
+}
+public static void getvalues(String s1, String
+s2) {
+LinkedHashSet<Character>hs=new LinkedHashSet<Character>();
+LinkedHashSet<Character>hs1=new LinkedHashSet<Character>();
+StringBuffer sb=new StringBuffer();
+for(int i=0;i<s1.length();i++)
+{
+hs.add(s1.charAt(i));
+}
+for(int i=0;i<s2.length();i++)
+{
+hs1.add(s2.charAt(i));
+}
+//System.out.println(hs);
+//System.out.println(hs1);
+hs.retainAll(hs1);
+//System.out.println(hs);
+Iterator<Character>itr=hs.iterator();
+while(itr.hasNext())
+{
+char a=itr.next();
+if(a!=' ')
+{
+sb.append(a);
+}
+}
+System.out.println(sb.length());
+}
+}
+....................................................................
+
+55) Given method with a string of even lenfth as input.Write code to fetch two middle most characters and return it as string output.
+Example:
+input = this
+output= hi
+package shivam;
+public class B {
+/**
+* @param args
+*/
+public static void main(String[] args) {
+String s1="this";
+getvalues(s1);
+}
+public static void getvalues(String s1) {
+StringBuffer sb=new StringBuffer();
+if(s1.length()%2==0)
+{
+sb.append(s1.substring((s1.length()/2)-1, (
+s1.length()/2)+1));
+System.out.println(sb);
+}
+}
+}
+.....................................................................
+
+61) Given a method with two string inputs. First strinf is ID and Second string is location. ID is in the format CTS-LLL-XXXX where LLL is the first three letters of given location and XXXX is a four digit number. If the given ID meets the format return 1 else return -1.
+Example:
+Input1= CTS-hyd-1234
+Input2= hyderabad
+output=1
+package shivam;
+import java.util.StringTokenizer;
+public class B {
+public static void main(String[] args) {
+String s1="CTS-hyd-1234";
+String s2="hyderabad";
+getvalues(s1,s2);
+}
+public static void getvalues(String s1,String s2) {
+if(s1.matches("[A-Z]{3}[-]{1}[a-z]{3}[-]{1}[0-9]{4}"))
+{
+boolean b=false;
+StringBuffer sb=new StringBuffer();
+StringTokenizer st=new StringTokenizer(s1,"-");
+String s3=st.nextToken();
+String s4=st.nextToken();
+String s5=st.nextToken();
+String s6=s2.substring(0,3);
+if(s3.equals("CTS")&&s4.equals(s6) && (s5.length()==4) )
+{
+for(int i=0;i<s5.length();i++)
+{
+if(Character.isDigit(s5.charAt(
+i)))
+{
+b=true;
+}
+}
+}
+if(b==true)
+{
+System.out.println(1);
+}
+else
+System.out.println(-1);
+}
+else
+System.out.println(-1);
+}
+}
+.......................................................................................
+
+64) Given a method with a string input. Write code to encrypt the given string using following rules and return the encrypter string:
+1. Replace the characters at odd positions by next character in alphabet.
+2. Leave the characters at even positions unchanged.
+Note:
+- If an odd position character is 'z' replace it by 'a'.
+- Assume the first character in the string is at position 1.
+Example:
+input = curiosity
+output= dusipsjtz
+package shivam;
+public class B {
+/**
+* @param args
+*/
+public static void main(String[] args) {
+String s1="curiosity";
+getvalues(s1);
+}
+public static void getvalues(String s1) {
+StringBuffer sb=new StringBuffer();
+for(int i=0;i<s1.length();i++)
+{
+char b=s1.charAt(i);
+if(i%2==0)
+{
+if(b!='z')
+{
+char a=(char) (b+1);
+sb.append(a);
+}
+else
+{
+char a=(char) (b-25);
+sb.append(a);
+}
+}
+else
+sb.append(b);
+}
+System.out.println(sb);
+}
+}
+...............................................................................
+
+65) Given a method with two strings as input. Write code to modify the first string such that all the characters are replaced by plus sign(+) except the characters which are present in the second string. That is, if one or more characters of first string appear in second string, they will not be replaced by +. return the modified string as output. Note - ignore casse.
+Example:
+input1= NewYork
+input2= NewJersy
+output= New Y+r+
+package shivam;
+public class B {
+public static void main(String[] args) {
+String s1="New york";
+String s2="New Jersy";
+getvalues(s1,s2);
+}
+public static void getvalues(String s1, String s2) {
+StringBuffer sb=new StringBuffer();
+int flag;
+for(int i=0;i<s1.length();i++)
+{ flag=0;
+char c=s1.charAt(i);
+for(int j=0;j<s2.length();j++)
+{
+if(c==s2.charAt(j))
+{
+flag=1;
+}
+}
+if(flag!=0)
+{
+sb.append(c);
+}
+else
+sb.append('+');
+}
+System.out.println(sb);
+}
+}
+...................................................................................
+
+
+15. Get a input string. reverse it and parse it with '-'.
+input:computer
+output:r-e-t-u-p-m-o-c
+package Set1;
+import java.util.Scanner;
+public class ClassSet15 {
+public static String reversedAndParsedString(String s1){
+StringBuffer sb=new StringBuffer(s1);
+sb.reverse();
+StringBuffer sb1=new StringBuffer();
+for(int i=0;i<(2*s1.length())-1;i++)
+if(i%2!=0)
+sb1=sb.insert(i, '-');
+return sb1.toString();
+}
+public static void main(String[] args) {
+Scanner s=new Scanner(System.in);
+System.out.println("enter the String:");
+String s1=s.next();
+System.out.println("the formatted string is:"+reversedAndParsedString(s1));
+}
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+18.Two input strings are accepted. If the two strings are of same length concat them and return, if they are not of same length, reduce the longer string to size of smaller one, 
+and concat them
+input1:"hello"
+input2:"hi"
+output:"lohi"
+input1:"aaa"
+input2:"bbb"
+output:"aaabbb"
+package Set1;
+import java.util.*;
+public class ClassSet18 {
+public static String concatStrings(String s1,String s2){
+StringBuffer sb=new StringBuffer();
+if(s1.length()==s2.length())
+sb.append(s1).append(s2);
+else if(s1.length()>s2.length()){
+s1=s1.substring(s1.length()/2, s1.length());
+sb.append(s1).append(s2);
+}
+else if(s1.length()<s2.length()){
+s2=s2.substring(s2.length()/2, s2.length());
+sb.append(s1).append(s2);
+}
+return sb.toString();
+}
+public static void main(String[] args) {
+Scanner s=new Scanner(System.in);
+String s1=s.next();
+String s2=s.next();
+System.out.println(concatStrings(s1,s2));
+}
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+25. Check whether a given string is palindrome also check whether it has atleast 2 different vowels
+input: "madam"
+output: false(no 2 diff vowels)
+package Set1;
+public class ClassSet25 {
+public static boolean palindromeAndVowelCheck(String s){
+boolean b=true;
+int c=0;
+String s1="aeiou";
+StringBuffer sb=new StringBuffer(s);
+String s2=sb.reverse().toString();
+if(!s2.equals(s))
+b=false;
+else{
+loop:
+for(int i=0;i<s1.length();i++)
+for(int j=0;j<s.length();j++)
+if(s1.charAt(i)==s.charAt(j)){
+c++;
+continue loop; }
+if(c<2)
+b=false;
+}
+return b;
+}
+public static void main(String[] args) {
+String s="deed";
+System.out.println(palindromeAndVowelCheck(s));
+}
+}
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+26. Find no of characters in a given string which are not repeated.
+input: "hello"
+output: 3
+package Set1;
+public class ClassSet26 {
+public static int noOfnonRepeatedCharacters(String s1){
+StringBuffer sb=new StringBuffer(s1);
+for(int i=0;i<sb.length();i++){
+int n=0;
+for(int j=i+1;j<sb.length();j++)
+if(sb.charAt(i)==sb.charAt(j)){
+sb.deleteCharAt(j);
+n++; }
+if(n>0){
+sb.deleteCharAt(i);
+i--;} }
+return sb.length();
+}
+public static void main(String[] args) {
+String s1="preethi";
+System.out.println(noOfnonRepeatedCharacters(s1));
+}
+}
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+31.Enter yout name and return a string "print the title first and then comma and then first letter of initial name.
+package Set1;
+import java.util.*;
+public class ClassSet31 {
+public static String retrieveName(String s1){
+StringTokenizer t=new StringTokenizer(s1," ");
+String s2=t.nextToken();
+String s3=t.nextToken();
+StringBuffer sb=new StringBuffer(s2);
+sb.append(',').append(s3.charAt(0));
+return sb.toString();
+}
+public static void main(String[] args) {
+String s1="Bhavane Raghupathi";
+System.out.println(retrieveName(s1));
+}
+}
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+32.Write a Program that accepts a string and removes the duplicate characters.
+package Set1;
+public class ClassSet32 {
+public static String removalOfDuplicateCharacters(String s1){
+StringBuffer sb=new StringBuffer(s1);
+for(int i=0;i<s1.length();i++)
+for(int j=i+1;j<s1.length();j++)
+if(s1.charAt(i)==s1.charAt(j))
+sb.deleteCharAt(j);
+return sb.toString();
+}
+public static void main(String[] args) {
+String s1="bhavane";
+System.out.println(removalOfDuplicateCharacters(s1));
+}
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+37.String encrption. replace the odd-index character with next character(if it is 'z' replace with 'a'..if 'a' with 'b' as such),
+leave the even index as such. return the encrypted string.
+package Set1;
+public class ClassSet37 {
+public static void main(String[] args) {
+String s="preethi";
+System.out.println(oddEncryptionOfString(s));
+}
+public static String oddEncryptionOfString(String s) {
+StringBuffer sb=new StringBuffer();
+for(int i=0;i<s.length();i++){
+char c=s.charAt(i);
+if(c%2!=0){
+c=(char)(c+1);
+sb.append(c); }
+else
+sb.append(c); }
+return sb.toString();
+}
+}
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+39.GIVEN A STRING 555-666-1234
+DISPLAY AS 55-56-661-234?
+package Set1;
+import java.util.StringTokenizer;
+public class ClassSet39 {
+public static void main(String[] args) {
+String s="555-666-1234";
+System.out.println(display(s));
+}
+public static String display(String s) {
+StringTokenizer t=new StringTokenizer(s,"-");
+String s1=t.nextToken();
+String s2=t.nextToken();
+String s3=t.nextToken();
+StringBuffer sb=new StringBuffer();
+sb.append(s1.substring(0, s1.length()-1)).append('-');
+sb.append(s1.charAt(s1.length()-1)).append(s2.charAt(0)).append('-');
+sb.append(s2.substring(1, s2.length())).append(s3.charAt(0)).append('-');
+sb.append(s3.substring(1, s3.length()));
+return sb.toString();
+}
+}
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+40.input1="Rajasthan";
+input2=2;
+input3=5;
+output=hts;
+package Set1;
+public class ClassSet40 {
+public static void main(String[] args) {
+String input1="Rajasthan";
+int input2=2, input3=5;
+System.out.println(retrieveString(input1,input2,input3));
+}
+public static String retrieveString(String input1, int input2, int input3) {
+StringBuffer sb=new StringBuffer(input1);
+sb.reverse();
+String output=sb.substring(input2, input3);
+return output;
+}
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+42. input1=commitment;
+output=cmmitmnt;
+c be the first index position
+remove even vowels from the string
+package Set1;
+public class ClassSet42 {
+public static void main(String[] args) {
+String s1="cOmmitment";
+System.out.println(removeEvenElements(s1));
+}
+public static String removeEvenElements(String s1) {
+StringBuffer sb1=new StringBuffer();
+for(int i=0;i<s1.length();i++)
+if((i%2)==0)
+sb1.append(s1.charAt(i));
+else if((i%2)!=0)
+if(s1.charAt(i)!='a' && s1.charAt(i)!='e' && s1.charAt(i)!='i' && s1.charAt(i)!='o' && s1.charAt(i)!='u')
+if(s1.charAt(i)!='A' && s1.charAt(i)!='E' && s1.charAt(i)!='I' && s1.charAt(i)!='O' && s1.charAt(i)!='U')
+sb1.append(s1.charAt(i));
+return sb1.toString();
+}
+}
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1) compare two strings, if the characters in string 1 are present in
+string 2, then it should be put as such in output, else '+' should be
+put in output...ignore case difference.
+input 1:"New York"
+input 2:"NWYR"
+output:N+w+Y+r+
+package Set2;
+public class ClassSET1 {
+public static void main(String[] args) {
+String s1="New York";
+String s2="NWYR";
+System.out.println(StringFormatting(s1,s2));
+}
+public static String StringFormatting(String s1, String s2) {
+StringBuffer s4=new StringBuffer();
+String s3=s1.toUpperCase();
+for(int i=0;i<s2.length();i++)
+for(int j=0;j<s3.length();j++)
+if(s2.charAt(i)==s3.charAt(j))
+s4.append(s1.charAt(j)).append('+');
+return s4.toString();
+}
+}
+----------------------------------------------------------------------------------------------------------||
+
+4) intput="xyzwabcd"
+intput2=2;
+input3=4;
+output=bawz
+package Set2;
+public class ClassSET4 {
+public static void main(String[] args) {
+String s1="xyzwabcd";
+int n1=2,n2=4;
+System.out.println(retrievalOfString(s1,n1,n2));
+}
+public static String retrievalOfString(String s1, int n1, int n2) {
+StringBuffer sb=new StringBuffer(s1);
+sb.reverse();
+String s2=sb.substring(n1, n1+n2);
+return s2;
+}
+}
+--------------------------------------------------------------------------------------------------------||
+
+
+18)String a="a very fine day"
+output:A Very Fine Day
+package Set2;
+import java.util.StringTokenizer;
+public class ClassSET18 {
+public static void main(String[] args){
+String s1="its a very fine day";
+System.out.println(capsStart(s1));
+}
+public static String capsStart(String s1){
+StringBuffer s5=new StringBuffer();
+StringTokenizer t=new StringTokenizer(s1," ");
+while(t.hasMoreTokens()){
+String s2=t.nextToken();
+String s3=s2.substring(0,1);
+String s4=s2.substring(1, s2.length());
+s5.append(s3.toUpperCase()).append(s4).append(" "); }
+return s5.toString();
+}
+}
+--------------------------------------------------------------------------------------------------------||
+
+3) String[] input1=["Vikas","Lokesh",Ashok]
+expected output String: "Vikas,Lokesh,Ashok"
+package Set3;
+public class ClassSeT03 {
+public static void main(String[] args) {
+String[] ip={"Vikas","Lokesh","Ashok"};
+System.out.println(getTheNamesinGivenFormat(ip));
+}
+public static String getTheNamesinGivenFormat(String[] ip) {
+StringBuffer sb=new StringBuffer();
+for(int i=0;i<ip.length;i++)
+sb.append(ip[i]).append(',');
+sb.deleteCharAt(sb.length()-1);
+return sb.toString();
+}
+}
+----------------------------------------------------------------------------------------------------||
+
+8) INPUT1= helloworld
+INPUT2= 2. delete the char,if rpted twice.
+if occurs more than twice,leave the first occurence and delete the duplicate
+O/P= helwrd;
+package Set3;
+public class ClassSeT08 {
+public static void main(String[] args) {
+String input1="HelloWorld";
+int input2=2;
+System.out.println(deletingtheCharOccuringTwice(input1,input2));
+}
+public static String deletingtheCharOccuringTwice(String input1, int input2) {
+StringBuffer sb=new StringBuffer(input1);
+int c=1;
+for(int i=0;i<sb.length();i++){
+c=1;
+for(int j=i+1;j<sb.length();j++)
+if(sb.charAt(i)==sb.charAt(j))
+c++;
+if(c>=input2){
+for(int j=i+1;j<sb.length();j++)
+if(sb.charAt(i)==sb.charAt(j))
+sb.deleteCharAt(j);
+sb.deleteCharAt(i);
+i--; } }
+return sb.toString();
+}
+}
+----------------------------------------------------------------------------------------------------||
+
+11) input="hello"
+output="hlo"; Alternative positions...
+package Set3;
+public class ClassSeT11 {
+public static void main(String[] args) {
+String s="Hello";
+System.out.println(alternatingChar(s));
+}
+public static String alternatingChar(String s){
+StringBuffer sb=new StringBuffer();
+for(int i=0;i<s.length();i++)
+if(i%2==0)
+sb.append(s.charAt(i));
+return sb.toString();
+}
+}
+----------------------------------------------------------------------------------------------------||
+12) Input1=”Hello World”; output-------à “dello WorlH”.
+package Set3;
+public class ClassSeT12 {
+public static void main(String[] args) {
+String s="Hello World";
+System.out.println(reArrangingWord(s));
+}
+public static String reArrangingWord(String s) {
+StringBuffer sb=new StringBuffer();
+sb.append(s.substring(s.length()-1));
+sb.append(s.substring(1, s.length()-1));
+sb.append(s.substring(0, 1));
+return sb.toString();
+}
+}
+----------------------------------------------------------------------------------------------------||
+
+18) Input1=”cowboy”; Output1=”cowcow”;
+Input1=”so”;output1=”sososo”;
+HINT: if they give 3 letter word u have to display 2 time;
+package Set3;
+public class ClassSeT18 {
+public static void main(String[] args) {
+String ip1="cowboy";
+String ip2="cow";
+System.out.println(printingStringDependingOncharCount(ip1,ip2));
+}
+public static String printingStringDependingOncharCount(String ip1,String ip2) {
+StringBuffer sb=new StringBuffer();
+int n1=ip2.length();
+if(n1==3)
+for(int i=0;i<n1-1;i++)
+sb.append(ip1.substring(0, n1));
+else if(n1==2)
+for(int i=0;i<n1+1;i++)
+sb.append(ip1.substring(0, n1));
+return sb.toString();
+}
+}
+----------------------------------------------------------------------------------------------------||
+
+22) input --String input1 ="xaXafxsd"
+output--String output1="aXafsdxx"
+operation-- remove the character "x"(only lower case) from string and place at the end
+package Set3;
+public class ClassSeT22 {
+public static void main(String[] args) {
+String input="xaXafxsd";
+System.out.println(removalOfx(input));
+}
+public static String removalOfx(String input) {
+StringBuffer sb=new StringBuffer(input);
+int j=0;
+for(int i=0;i<sb.length();i++)
+if(sb.charAt(i)=='x'){
+sb.deleteCharAt(i);
+j++;}
+for(int i=0;i<j;i++)
+sb.append('x');
+return sb.toString();
+}
+}
+----------------------------------------------------------------------------------------------------||
+
+22) input --String input1 ="xaXafxsd"
+output--String output1="aXafsdxx"
+operation-- remove the character "x"(only lower case) from string and place at the end
+package Set3;
+public class ClassSeT22 {
+public static void main(String[] args) {
+String input="xaXafxsd";
+System.out.println(removalOfx(input));
+}
+public static String removalOfx(String input) {
+StringBuffer sb=new StringBuffer(input);
+int j=0;
+for(int i=0;i<sb.length();i++)
+if(sb.charAt(i)=='x'){
+sb.deleteCharAt(i);
+j++;}
+for(int i=0;i<j;i++)
+sb.append('x');
+return sb.toString();
+}
+}
+----------------------------------------------------------------------------------------------------||
+
+25) input string="hello", n=2
+output: lolo
+package Set3;
+public class ClassSeT25 {
+public static void main(String[] args) {
+String s1="hello";
+int n1=2;
+System.out.println(formattingOfString(s1,n1));
+}
+public static String formattingOfString(String s1, int n1) {
+String s2=s1.substring(s1.length()-n1, s1.length());
+StringBuffer sb=new StringBuffer();
+for(int i=0;i<n1;i++)
+sb.append(s2);
+return sb.toString();
+}
+}
+----------------------------------------------------------------------------------------------------||
+
+31) concat two string if length of two string is equal.
+if length of one string is greater, then remove the character from
+largest string and then add. The number of characters removed from
+largest string is equal to smallest string's length
+for example: input 1="hello";
+input 2="helloworld";
+output="worldhello";
+package Set3;
+public class ClassSeT31 {
+public static void main(String[] args) {
+String ip1="hello";
+String ip2="helloworld";
+System.out.println(removalOfCharFromLargestString(ip1,ip2));
+}
+public static String removalOfCharFromLargestString(String ip1,String ip2){
+StringBuffer sb=new StringBuffer();
+int n1=ip1.length();
+int n2=ip2.length();
+if(n1<n2)
+sb.append(ip2.substring(n1, n2)).append(ip1);
+return sb.toString();
+}
+}
+----------------------------------------------------------------------------------------------------||
+
+34) swap the every 2 chrecters in the given string
+If size is odd number then keep the last letter as it is.
+Ex:- input: forget
+output: ofgrte
+Ex:- input : NewYork
+output : eNYwrok
+package Set3;
+public class ClassSet34 {
+public static void main(String[] args) {
+String s1="newyork";
+System.out.println(formattingGivenString(s1));
+}
+public static String formattingGivenString(String s1) {
+StringBuffer sb=new StringBuffer();
+int j=0;
+if(s1.length()%2==0)
+j=s1.length();
+else
+j=s1.length()-1;
+for(int i=0;i<j;i=i+2){
+String s2=(s1.substring(i, i+2));
+StringBuffer sb1=new StringBuffer(s2);
+sb.append(sb1.reverse());}
+String s3=new String();
+if(s1.length()%2==0)
+s3=sb.toString();
+else
+s3=sb.append(s1.charAt(s1.length()-1)).toString();
+return s3;
+}
+}
+----------------------------------------------------------------------------------------------------||
+
+35) i/p: bengal
+o/p: ceogbl
+if z is there replace with a
+package Set3;
+public class ClassSeT35 {
+public static void main(String[] args) {
+String s1="bengal";
+System.out.println(stringFormatting(s1));
+}
+public static String stringFormatting(String s1) {
+StringBuffer sb=new StringBuffer();
+for(int i=0;i<s1.length();i++){
+char c=s1.charAt(i);
+if(i%2==0){
+if(c==122)
+c=(char) (c-25);
+else{
+c=(char) (c+1);}
+sb.append(c);}
+else
+sb.append(c);}
+return sb.toString();
+}
+}
+----------------------------------------------------------------------------------------------------||
+
+37) i/p1: new york
+i/p2: new jersey
+o/p: new y+r+
+solution:
+package Set3;
+public class ClassSeT37 {
+public static void main(String[] args) {
+String s1="New york";
+String s2="New jersey";
+System.out.println(commonCharsinAstring(s1,s2));
+}
+private static String commonCharsinAstring(String s1, String s2) {
+int f;
+StringBuffer sb=new StringBuffer();
+for(int i=0;i<s1.length();i++){
+f=0;
+char c1=s1.charAt(i);
+for(int j=0;j<s2.length();j++)
+if(c1==s2.charAt(j))
+f=1;
+if(f!=0)
+sb.append(c1);
+else
+sb.append('+');}
+return sb.toString();
+}
+}
+----------------------------------------------------------------------------------------------------||
+
+41) ip: "this is sample test case"
+op: "this amplec"
+remove the duplicates in the given string
+package Set3;
+import java.util.*;
+public class ClassSeT42 {
+public static void main(String[] args) {
+String s1="this is sample test case";
+System.out.println(removeDuplicates(s1));
+}
+public static String removeDuplicates(String s1) {
+StringBuffer sb=new StringBuffer();
+Set<Character> c1=new LinkedHashSet<Character>();
+for(int i=0;i<s1.length();i++)
+c1.add(s1.charAt(i));
+for(char c2:c1)
+sb.append(c2);
+return sb.toString();
+}
+}
+----------------------------------------------------------------------------------------------------||
+
+45) Getting the first and last n letters from a word where wordlength > 2n.
+Ex: Input: california,3.
+output: calnia.
+package Set3;
+public class ClassSeT46 {
+public static void main(String[] args) {
+String s1="california";
+int n1=3;
+System.out.println(subStringOfgivenString(s1,n1));
+}
+public static String subStringOfgivenString(String s1, int n1) {
+StringBuffer sb=new StringBuffer();
+sb.append(s1.substring(0, n1)).append(s1.substring(s1.length()-n1,s1.length()));
+return sb.toString();
+}
+}
+----------------------------------------------------------------------------------------------------||
+

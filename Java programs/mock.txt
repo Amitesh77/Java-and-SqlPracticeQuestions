@@ -1,0 +1,280 @@
+import java.util.Arrays;
+
+
+public class UserMainCode1 {
+	 static String[] output;
+	 
+	    public static void modifiedArray(String[] input1) {
+	    	
+	    	output=new String[input1.length];
+	 Arrays.sort(input1);
+	 int n=input1.length;
+	 int size=n/2;
+	 
+	 if((n/2)!=0)
+	 {
+		
+			 size=n/2+1;
+		 }
+	 for(int i=0;i<size;i++)
+	 {
+		 output[i]=input1[i].toUpperCase();
+	 }
+	 for(int i=size;i<n;i++)
+	 {
+		 output[i]=input1[i].toLowerCase();
+	 }
+	 		 
+	    }
+}
+
+------------------------------------------------------------
+import java.util.StringTokenizer;
+
+
+public class UserMainCode2 {
+	 public static String getSum(double n) {
+		 int d=0,sum=0,d1=0,sum1=0;
+	    	
+		 String s=String.valueOf(n);
+		 StringTokenizer sb=new StringTokenizer(s,".");
+		 String s1=sb.nextToken();
+		 String s2=sb.nextToken();
+		 int n1=Integer.parseInt(s1);
+		 int n2=Integer.parseInt(s2);
+		 while(n1!=0)
+		 {
+			 d=n1%10;
+			 sum=sum+d;
+			 n1=n1/10;
+		 }
+		 while(n2!=0)
+		 {
+			 d1=n2%10;
+			 sum1=sum1+d1;
+			 n2=n2/10;
+		 }
+		 
+String s5=String.valueOf(sum)+":"+String.valueOf(sum1);
+		 return s5;
+		 
+	    }
+}
+
+-------------------------------------------------------------------
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Iterator;
+
+public class UserMainCode3 {
+
+    public static ArrayList<Integer> getList(HashMap<Integer,String> inputMap) throws ParseException {
+ Date d1=new Date();
+    	ArrayList<Integer> al=new ArrayList<Integer>();
+ Iterator<Integer> itr=inputMap.keySet().iterator();
+ while(itr.hasNext())
+ {int n3=itr.next();
+	 String s3=inputMap.get(n3);
+	 SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/yyyy");
+	 Date d2=sdf.parse(s3);
+	 Calendar cal=Calendar.getInstance();
+	 cal.setTime(d2);
+	 cal.add(Calendar.YEAR,18);
+	 Date d3=cal.getTime();
+	 if(d3.before(d1))
+	 {
+	 
+		 al.add(n3);
+		 
+	 }
+	 
+	 
+ }
+ return al;
+ 
+     }
+}
+____________________________________________________________________________
+
+QUESTION 1
+ 
+import java.util.HashMap;
+import java.util.Scanner;
+ 
+public class Main {
+                public static void main(String args[]) {
+                                HashMap<String, String> hmap = new HashMap<String, String>();
+                                String input = "";
+                                Scanner sc = new Scanner(System.in);
+                                input = sc.nextLine();
+                                hmap = UserMainCode.getStates(input);
+                                for (String str : hmap.keySet()) {
+                                                System.out.println(str + ":" + hmap.get(str));
+                                }
+                }
+}
+ 
+import java.util.HashMap;
+import java.util.StringTokenizer;
+ 
+public class UserMainCode {
+                public static HashMap<String, String> getStates(String str) {
+                                // tamilnadu||chennai-karanataka||bengaluru
+                                StringTokenizer st = new StringTokenizer(str, "-");
+                                // System.out.println(st.nextToken());
+                                // System.out.println(st.nextToken());
+                                HashMap<String, String> h = new HashMap<String, String>();
+ 
+                                while (st.hasMoreTokens()) {
+                                                String s1 = st.nextToken();
+                                                System.out.println(s1);
+                                                StringTokenizer st1 = new StringTokenizer(s1, "||");
+                                                String s2 = st1.nextToken();
+ 
+                                                String s3 = st1.nextToken();
+                                                h.put(s2, s3);
+ 
+                                }
+ 
+                                return h;
+ 
+                }
+}
+ 
+ 
+QUESTION 2
+ 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Scanner;
+ 
+public class Main {
+                public static void main(String args[]) {
+                                HashMap<Integer, String> hmap = new HashMap<Integer, String>();
+                                List<Integer> idlist = new ArrayList<Integer>();
+                                int empid;
+                                String joindate;
+                                int n;
+                                Scanner sc = new Scanner(System.in);
+                                n = sc.nextInt();
+                                for (int i = 1; i <= n; i++) {
+                                                empid = sc.nextInt();
+                                                joindate = sc.next();
+                                                hmap.put(empid, joindate);
+                                }
+                                System.out.println(UserMainCode.getEmployees(hmap));
+ 
+                }
+}
+ 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Iterator;
+ 
+public class UserMainCode {
+                public static ArrayList<Integer> getEmployees(HashMap<Integer, String> hmap) {
+                                ArrayList<Integer> al = new ArrayList<Integer>();
+                                Iterator<Integer> itr = hmap.keySet().iterator();
+                                while (itr.hasNext()) {
+                                                int n = itr.next();
+                                                String s = hmap.get(n);
+                                                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                                                sdf.setLenient(false);
+                                                try {
+                                                                Date d = sdf.parse(s);
+                                                                SimpleDateFormat sdf1 = new SimpleDateFormat("EEEEE");
+                                                                String g = sdf1.format(d);
+                                                                if (g.equalsIgnoreCase("Thursday")) {
+                                                                                al.add(n);
+                                                                }
+ 
+                                                } catch (ParseException e) {
+                                                                // TODO: handle exception
+                                                }
+ 
+                                }
+ 
+                                return al;
+                }
+}
+ 
+ 
+QUESTION 3
+ 
+import java.util.ArrayList;
+import java.util.Scanner;
+ 
+public class Main {
+                public static void main(String[] args) {
+                                Scanner s = new Scanner(System.in);
+                                int l = s.nextInt();
+                                ArrayList<String> al = new ArrayList<String>();
+                                for (int i = 0; i < l; i++) {
+                                                String s1 = s.next();
+                                                al.add(s1);
+                                }
+                                UserMainCode.getvalues(al);
+ 
+                }
+ 
+}
+ 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map.Entry;
+import java.util.StringTokenizer;
+ 
+public class UserMainCode {
+                public static void getvalues(ArrayList<String> al) {
+                                HashMap<String, Integer> h = new HashMap<String, Integer>();
+                                for (int i = 0; i < al.size(); i++) {
+                                                String s = al.get(i);
+                                                StringTokenizer st = new StringTokenizer(s, "-");
+                                                String s1 = st.nextToken();
+                                                int n1 = Integer.parseInt(st.nextToken());
+                                                int n2 = Integer.parseInt(st.nextToken());
+                                                int n3 = Integer.parseInt(st.nextToken());
+                                                int av = n1 + n2 + n3;
+                                                int f = av / 3;
+                                                if (s1.charAt(0) == 's' || s1.charAt(0) == 'S') {
+                                                                h.put(s1, f);
+                                                }
+                                }
+                                ArrayList<Integer> al1 = new ArrayList<Integer>();
+                                System.out.println(h);
+                                Iterator<String> itr = h.keySet().iterator();
+                                while (itr.hasNext()) {
+                                                String k = itr.next();
+                                                int v = h.get(k);
+                                                al1.add(v);
+                                }
+                                String g = null;
+                                ;
+                                int g1 = 0;
+                                Collections.sort(al1);
+                                Collections.reverse(al1);
+                                System.out.println(al1);
+                                for (Entry<String, Integer> entry : h.entrySet()) {
+                                                String s = entry.getKey();
+                                                if (entry.getValue().equals(al1.get(0))) {
+                                                                g = s;
+                                                                g1 = entry.getValue();
+                                                }
+                                }
+                                System.out.println(g);
+                                System.out.println(g1);
+                }
+}
+ 
+ 
+

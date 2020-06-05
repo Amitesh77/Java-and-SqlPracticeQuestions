@@ -1,0 +1,350 @@
+9) Given a method with pan card no as string input .Write code to validate PAN no against following rules:
+1)there must be 8 characters
+2)first 3 letters must be alphabets followed by 4 digit number and ends with alphabet.
+3)all alphabets should be in capital case
+If pan card no is valid return 1as output else return 2 as output
+Example
+input=ALD3245E
+out=1
+package Final;
+public class I {
+/**
+* @param args
+*/
+public static void main(String[] args) {
+String s1="ALD324A";
+getvalues(s1);
+}
+public static void getvalues(String s1) {
+if(s1.matches("[A-Z]{3}[0-9]{3}[A-Z]{1}"))
+{
+System.out.println(1);
+}
+else
+System.out.println(2);
+}
+}
+.....................................................................................................
+
+45) Given a method with a password in string format as input. Write code to validate the password
+using following rules:
+-Must contain at least one digit.
+- Must contain at least one of the following special characters @,#,$
+- Length should be between 6 to 20 characters
+-If the password is as per the given rules return 1 else return -1.
+package com.Packas;
+import java.util.StringTokenizer;
+import java.util.*;
+public class A {
+public static void main(String[] args) {
+Scanner s = new Scanner(System.in);
+String st = s.next();
+boolean b = validatingPassword(st);
+if (b == true)
+System.out.println("valid password");
+else
+System.out.println("Invalid Password");
+}
+public static boolean validatingPassword(String st) {
+boolean b1 = false, b2 = false;
+// if(Character.isUpperCase(st.charAt(0)))
+// if(Character.isLowerCase(st.charAt(st.length()-1)))
+if (st.length() >= 6 && st.length() <= 20)
+for (int i = 0; i < st.length(); i++) {
+char c = st.charAt(i);
+if (Character.isDigit(c)) {
+b1 = true;
+break;
+}
+}
+int x = 0, y = 0;
+for (int i = 0; i < st.length(); i++)
+// if(Character.isUpperCase(st.charAt(i)))
+// x++;
+// else if(Character.isLowerCase(st.charAt(i)))
+// y++;
+if (b1 == true)
+// if(x>y)
+for (int i1 = 0; i1 < st.length(); i1++) {
+char c = st.charAt(i1);
+if (c == '#' || c == '@' || c == '$') {
+b2 = true;
+break;
+}
+}
+return b2;
+}
+}
+..................................................................................
+
+33.validate a password
+i) there should be atleast one digit
+ii) there should be atleast one of '#','@' or '$' .
+iii)the password should be of 6 to 20 characters
+iv) there should be more uppercase letter than lower case.
+v) should start with an upper case and end with lower case
+package Set1;
+import java.util.*;
+public class ClassSet33 {
+public static void main(String[] args) {
+Scanner s=new Scanner(System.in);
+String st=s.next();
+boolean b=validatingPassword(st);
+if(b==true)
+System.out.println("valid password");
+else
+System.out.println("Invalid Password");
+}
+public static boolean validatingPassword(String st) {
+boolean b1=false,b2=false;
+if(Character.isUpperCase(st.charAt(0)))
+if(Character.isLowerCase(st.charAt(st.length()-1)))
+if(st.length()>=6 && st.length()<=20)
+for (int i = 0; i < st.length();i++)
+{ char c = st.charAt(i);
+if(Character.isDigit(c)){
+b1=true; break; } }
+int x=0,y=0;
+for(int i = 0; i < st.length(); i++)
+if(Character.isUpperCase(st.charAt(i)))
+x++;
+else if(Character.isLowerCase(st.charAt(i)))
+y++;
+if(b1==true)
+if(x>y)
+for (int i = 0; i < st.length();i++)
+{ char c = st.charAt(i);
+if(c=='#' || c=='@' || c=='$'){
+b2=true; break; } }
+return b2;
+}
+}
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+35.validate the ip address in the form a.b.c.d
+where a,b,c,d must be between 0and 255
+if validated return 1 else return 2
+package Set1;
+import java.util.*;
+public class ClassSet35 {
+public static void main(String[] args) {
+String ipAddress="010.230.110.160";
+boolean b=validateIpAddress(ipAddress);
+if(b==true)
+System.out.println("valid ipAddress");
+else
+System.out.println("not a valid ipAddress");
+}
+public static boolean validateIpAddress(String ipAddress) {
+boolean b1=false;
+StringTokenizer t=new StringTokenizer(ipAddress,".");
+int a=Integer.parseInt(t.nextToken());
+int b=Integer.parseInt(t.nextToken());
+int c=Integer.parseInt(t.nextToken());
+int d=Integer.parseInt(t.nextToken());
+if((a>=0 && a<=255)&&(b>=0 && b<=255)&&(c>=0 && c<=255)&&(d>=0 && d<=255))
+b1=true;
+return b1;
+}
+}
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+27) Validate Password
+validation based on following criteria:
+-> minimum length is 8
+-> should contain any of these @/_/#
+-> should not start with number/special chars(@/#/_)
+-> should not end with special chars
+-> can contain numbers,letters,special chars
+package Set3;
+import java.util.*;
+public class ClassSeT40 {
+public static void main(String[] args) {
+Scanner s=new Scanner(System.in);
+String s1=s.next();
+boolean b=passwordValidation(s1);
+if(b==true)
+System.out.println("valid password");
+else
+System.out.println("not a valid password");
+}
+public static boolean passwordValidation(String s1) {
+boolean b=false,b1=false,b2=false;
+if(s1.length()>=8)
+if(!Character.isDigit(s1.charAt(0)))
+if(s1.charAt(0)!='@' && s1.charAt(0)!='_' && s1.charAt(0)!='#')
+if(s1.charAt(s1.length()-1)!='@' && s1.charAt(s1.length()-1)!='_' && s1.charAt(s1.length()-1)!='#')
+b1=true;
+if(b1==true)
+for(int i=0;i<s1.length();i++)
+if(Character.isAlphabetic(s1.charAt(i)) || Character.isDigit(s1.charAt(i)) || s1.charAt(i)=='#' || s1.charAt(i)=='@' || s1.charAt(i)=='_')
+b2=true;
+if(b2==true)
+if(s1.contains("#") || s1.contains("@") || s1.contains("_"))
+b=true;
+return b;
+}
+}
+----------------------------------------------------------------------------------------------------||
+
+43) Given a method with a password as string input. Apply following validations:
+1. Minimum length should be 8 characters.
+2. Must contain any one of these three special characters @ or _ or #
+3. May contain numbers or alphabets.
+4. Should not statr with special character or number.
+5.Should not end with special character.
+Return 1 if its satisfy above validations else return -1.
+Example:
+Input= ashok_23
+Output=1
+Input= 1980_200
+Output=-1.
+package com.Packas;
+import java.util.*;
+public class A {
+public static void main(String[] args) {
+Scanner s=new Scanner(System.in);
+String s1=s.next();
+boolean b=passwordValidation(s1);
+if(b==true)
+System.out.println("1 or valid password");
+else
+System.out.println("-1 or not a valid password");
+}
+public static boolean passwordValidation(String s1) {
+boolean b=false,b1=false,b2=false;
+if(s1.length()>=8)
+if(!Character.isDigit(s1.charAt(0)))
+if(s1.charAt(0)!='@' && s1.charAt(0)!='_' && s1.charAt(0)!='#')
+if(s1.charAt(s1.length()-1)!='@' && s1.charAt(s1.length()-1)!='_' && s1.charAt(s1.length()-1)!='#')
+b1=true;
+if(b1==true)
+for(int i=0;i<s1.length();i++)
+if(Character.isAlphabetic(s1.charAt(i)) || Character.isDigit(s1.charAt(i)) || s1.charAt(i)=='#' || s1.charAt(i)=='@' || s1.charAt(i)=='_')
+b2=true;
+if(b2==true)
+if(s1.contains("#") || s1.contains("@") || s1.contains("_"))
+b=true;
+return b;
+}
+}
+......................................................................
+
+
+4) Email Validation
+String input1="test@gmail.com"
+1)@ & . should be present;
+2)@ & . should not be repeated;
+3)there should be five charcters between @ and .;
+4)there should be atleast 3 characters before @ ;
+5)the end of mail id should be .com;
+package Set3;
+import java.util.*;
+public class ClassSeT04 {
+public static void main(String[] args) {
+String ip="test@gmail.com";
+boolean b=emailIdValidation(ip);
+if(b==true)
+System.out.println("valid mail Id");
+else
+System.out.println("not a valid Id");
+}
+public static boolean emailIdValidation(String ip) {
+int i=0;
+boolean b=false;
+StringTokenizer t=new StringTokenizer(ip,"@");
+String s1=t.nextToken();
+String s2=t.nextToken();
+StringTokenizer t1=new StringTokenizer(s2,".");
+String s3=t1.nextToken();
+String s4=t1.nextToken();
+if(ip.contains("@") && ip.contains("."))
+i++;
+if(i==1)
+if(s3.length()==5)
+if(s1.length()>=3)
+if(s4.equals("com"))
+b=true;
+return b;
+}
+}
+----------------------------------------------------------------------------------------------------||
+
+28) pan card number validation:
+all letters shud be in caps,shud be of 8 chars.
+first three letters must be alphabets.
+next 4 letters shud be digits and last letter shud be an alphabet
+package Set3;
+import java.util.*;
+public class ClassSeT28 {
+public static void main(String[] args) {
+Scanner s=new Scanner(System.in);
+String pan=s.next();
+boolean b=panNumberValidation(pan);
+if(b==true)
+System.out.println("valid Pancard Number");
+else
+System.out.println("not a valid credential");
+}
+public static boolean panNumberValidation(String pan) {
+boolean b=false,b1=false,b2=false;
+String s1=pan.substring(0, 3);
+String s2=pan.substring(3, 7);
+if(pan.length()==8)
+if(Character.isAlphabetic(pan.charAt(pan.length()-1)) && Character.isUpperCase(pan.charAt(pan.length()-1)))
+b1=true;
+if(b1==true)
+for(int i=0;i<s1.length();i++)
+if(Character.isAlphabetic(s1.charAt(i)) && Character.isUpperCase(s1.charAt(i)))
+b2=true;
+else
+{b2=false;break;}
+if(b2==true)
+for(int i=0;i<s2.length();i++)
+if(Character.isDigit(s2.charAt(i)))
+b=true;
+else
+{b=false;break;}
+return b;
+}
+}
+----------------------------------------------------------------------------------------------------||
+
+43) Color Code Validation:
+String should starts with the Character '#'.
+Length of String is 7.
+It should contain 6 Characters after '#' Symbol.
+It should contain Characters Between 'A-F' and Digits '0-9'.
+if String is acceptable then Output1=1
+else Output1=-1;
+package Set3;
+import java.util.*;
+public class ClassSeT44 {
+public static void main(String[] args) {
+Scanner s=new Scanner(System.in);
+String s1=s.next();
+boolean b=colorCodeValidation(s1);
+if(b==true)
+System.out.println("valid color code");
+else
+System.out.println("invalid color code");
+}
+public static boolean colorCodeValidation(String s1) {
+boolean b=false,b1=false;
+String s2=s1.substring(1,s1.length());
+if(s1.length()==7)
+if(s1.charAt(0)=='#')
+b1=true;
+if(b1==true)
+for(int i=0;i<s2.length();i++){
+char c=s2.charAt(i);
+if(c!='#'){
+if((Character.isAlphabetic(c)&& Character.isUpperCase(c)) || Character.isDigit(c))
+b=true;
+else{
+b=false;
+break;}}}
+return b;
+}
+}
+----------------------------------------------------------------------------------------------------||
